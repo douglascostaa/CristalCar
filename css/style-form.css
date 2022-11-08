@@ -29,12 +29,16 @@ body {
 
 .header img{
 	margin-top: 5px;
-	width: 500px;
+	width: 600px;
 }
 
 .header i{
 	color: #fff;
 	font-size: 30px;
+}
+
+.header i:hover{
+	color: rgb(255, 136, 0);
 }
 
 .main {
@@ -46,6 +50,21 @@ body {
 	justify-content: center;
 	justify-content: space-around;
 }
+
+.text-line {
+	display: flex;
+	flex-direction: row;
+}
+
+.line-galery {
+	width: 6vw;
+	height: 1px;
+	background-color: rgba(228, 228, 228, 0.714);
+	border-radius: 15px;
+	border: none;
+	margin: 10px;
+}
+
 
 form {
 	display: flex;
@@ -63,6 +82,7 @@ form label{
 }
 
 form input{
+	text-transform: uppercase;
 	padding: 5px;
 	height: 30px;
 	color: #fff;
@@ -76,8 +96,6 @@ form input:focus{
 	border-bottom: rgb(255, 136, 0) 4px solid;
 }
 
-
-
 .form-single{
 	display: flex;
 	flex-direction: column;
@@ -90,11 +108,32 @@ form input:focus{
 }
 
 .button-next {
-	margin-top: 20px;
+	margin-top: 50px;
 	text-align: center;
 	text-decoration: none;
 	color: #fff;
 	border: #fff 1px solid;
 	padding: 15px;
 	width: 300px;
+	transition: 0.5s;
+}
+
+.button-next:hover {
+	color: rgb(255, 136, 0);
+	border: rgb(255, 136, 0) 1px solid;
+}
+
+
+
+
+
+
+@media (max-width: 640px){
+
+	.header img{
+		margin-top: 5px;
+		width: 500px;
+	}
+	
+
 }
