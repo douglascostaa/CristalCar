@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
 	<meta charset="UTF-8">
@@ -8,6 +8,7 @@
 	<script src="https://kit.fontawesome.com/9474b04d88.js" crossorigin="anonymous"></script>
 	<link href="assets/images/logo.png" rel="icon">
 	<link href="css/style-form.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 	<title>CristalCar</title>
 </head>
 
@@ -19,19 +20,32 @@
 
 		<div class="header">
 
-			<a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
+			<div class="div-back-button">
+				<a data-previous id = "button-back"><i class="fa-solid fa-arrow-left"></i></a>
+			</div>
 			<img src="assets/images/image-removebg-preview.png" alt="">
 			<div class="align"></div>
 
 		</div>
-		<form action="">
+		<form data-multi-step>
 
-			<div class="text-line">
-				<!-- <hr class="line-galery"> -->
-				<h3 style="margin-bottom: 50px;">FORMULÁRIO DE CLIENTE</h3>
-				<!-- <hr class="line-galery"> -->
-			</div>
+			<!-- Botão Orçamento  - (ETAPA 0) -->
+			
 			<div class="form-main">
+				<a class="button-orcamento"><i class="fa-solid fa-angle-left"></i> ORÇAR VEÍCULO <i
+					class="fa-solid fa-angle-right"></i></a>
+			</div>
+			
+
+			<!-- Formulário de cadastro de cliente - (ETAPA 1) -->
+
+			<div class="form-main" data-step>
+				
+				<div class="text-line">
+					<!-- <hr class="line-galery"> -->
+					<h3 style="margin-bottom: 50px;">FORMULÁRIO DE CLIENTE</h3>
+					<!-- <hr class="line-galery"> -->
+				</div>
 
 				<div class="form-single">
 					<label>Cliente:</label>
@@ -59,10 +73,23 @@
 						<input type="text">
 					</div>
 				</div>
+				<a class="button-next"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
 			</div>
 
+			<!-- Seleção da peça a ser consertada - (ETAPA 2) -->
 
-			<a class="button-next" href="carro.html"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
+			<div class="form-main" data-step>		
+			
+					<img class="img-carro" src="assets/images/image4.png" alt="">
+			
+					<div class="align"></div>
+					<div class="align"></div>
+					<a class="button-next"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
+				</div>
+			
+
+
+			
 
 
 		</form>

@@ -96,6 +96,20 @@ form input:focus{
 	border-bottom: rgb(255, 136, 0) 4px solid;
 }
 
+
+.form-main{
+	display: none;
+}
+
+.form-main.active{
+	display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+}
+
+
 .form-single{
 	display: flex;
 	flex-direction: column;
@@ -116,15 +130,26 @@ form input:focus{
 	padding: 15px;
 	width: 300px;
 	transition: 0.5s;
+	cursor: pointer;
 }
+
+
 
 .button-next:hover {
 	color: rgb(255, 136, 0);
 	border: rgb(255, 136, 0) 1px solid;
 }
 
-
-
+#button-back {
+	color:white;
+	cursor: pointer;
+	transition: 0.5s;
+	display: block;
+}
+#button-back:hover {
+	color: rgb(255, 136, 0);
+	
+}
 
 
 
