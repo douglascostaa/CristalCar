@@ -14,82 +14,192 @@
 
 <body>
 
-
-
 	<div class="main">
 
 		<div class="header">
 
 			<div class="div-back-button">
-				<a data-previous id = "button-back"><i class="fa-solid fa-arrow-left"></i></a>
+				<a data-previous id="button-back"><i class="fa-solid fa-arrow-left"></i></a>
 			</div>
-			<img src="assets/images/image-removebg-preview.png" alt="">
+			<img id="logo" style="" src="assets/images/image-removebg-preview.png" alt="">
 			<div class="align"></div>
 
 		</div>
+
 		<form data-multi-step>
 
 			<!-- Botão Orçamento  - (ETAPA 0) -->
-			
+
 			<div class="form-main">
 				<a class="button-orcamento"><i class="fa-solid fa-angle-left"></i> ORÇAR VEÍCULO <i
-					class="fa-solid fa-angle-right"></i></a>
+						class="fa-solid fa-angle-right"></i></a>
 			</div>
-			
+
 
 			<!-- Formulário de cadastro de cliente - (ETAPA 1) -->
 
 			<div class="form-main" data-step>
-				
+
 				<div class="text-line">
 					<!-- <hr class="line-galery"> -->
 					<h3 style="margin-bottom: 50px;">FORMULÁRIO DE CLIENTE</h3>
 					<!-- <hr class="line-galery"> -->
 				</div>
 
-				<div class="form-single">
-					<label>Cliente:</label>
-					<input type="text">
-				</div>
+				<div class="box-flex-form">
+					<div class="form-single">
+						<label>Cliente:</label>
+						<input type="text" id="cliente">
+					</div>
 
-				<div class="form-duo">
-					<div class="form-single">
-						<label>Modelo:</label>
-						<input type="text">
+					<div class="form-duo">
+						<div class="form-single">
+							<label>Modelo:</label>
+							<input type="text" id="modelo">
+						</div>
+						<div class="form-single">
+							<label>Placa:</label>
+							<input type="text" id="placa">
+						</div>
 					</div>
-					<div class="form-single">
-						<label>Placa:</label>
-						<input type="text">
-					</div>
-				</div>
 
-				<div class="form-duo">
-					<div class="form-single">
-						<label>Ano:</label>
-						<input type="text">
-					</div>
-					<div class="form-single">
-						<label>Cor:</label>
-						<input type="text">
+					<div class="form-duo">
+						<div class="form-single">
+							<label>Ano:</label>
+							<input type="text" id="ano">
+						</div>
+						<div class="form-single">
+							<label>Cor:</label>
+							<input type="text" id="cor">
+						</div>
 					</div>
 				</div>
-				<a class="button-next"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
+				<a id="button-next" class="button-next-1"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
 			</div>
 
 			<!-- Seleção da peça a ser consertada - (ETAPA 2) -->
 
-			<div class="form-main" data-step>		
-			
-					<img class="img-carro" src="assets/images/image4.png" alt="">
-			
-					<div class="align"></div>
-					<div class="align"></div>
-					<a class="button-next"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
+			<div class="form-main" data-step>
+
+				<img style="width: 200px;" class="img-carro" src="assets/images/image4.png" alt="">
+
+				<div class="align"></div>
+				<div class="align"></div>
+				<a id="button-next" class="button-next-2"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
+			</div>
+
+			<div class="form-main" data-step>
+
+				<div action="" class="select-peca">
+					<div id="select-header" class="form-duo">
+						<h4>PEÇA: </h4>
+						<label><input id="peca_dinamica"></label>
+					</div>
+					<div class="org-options">
+						<div class="box-check">
+							<div class="form-duo">
+								<input type="checkbox" name="checkServices" value="1" class="checkServices"><label>Troca</label>
+							</div>
+							<div class="form-duo">
+								<input type="checkbox" name="checkServices" value="2" class="checkServices"><label>Troca e Pintura</label>
+							</div>
+							<div class="form-duo">
+								<input type="checkbox" name="checkServices" value="3" class="checkServices"><label>Remover e Instalar</label>
+							</div>
+							<div class="form-duo">
+								<input type="checkbox" name="checkServices" value="4" class="checkServices"><label>Recuperar</label>
+							</div>
+							<div class="form-duo">
+								<input type="checkbox" name="checkServices" value="5" class="checkServices"><label>Pintura</label>
+							</div>
+						</div>
+
+						<div class="form-duo" id="input-price"> <label>R$</label> <input type="number" id="price"></div>
+
+					</div>
 				</div>
-			
+
+				<div class="align"></div>
+
+				<div class="box-buttons">
+					<a id="button-next"  class="button-next-3" onclick="serviceList()"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
+					<a id="button-end" onclick="serviceList()" class="button-end"><i class="fa-solid fa-check"></i> FINALIZAR ORÇAMENTO </a>
+				</div>
+
+			</div>
+
+			<div class="form-main" data-step>
+
+				<div class="box-dados">
+
+					<div class="form-single">
+						<label>Cliente:</label>
+						<!-- recebe dado -->
+						<label id="client"></label>
+					</div>
+
+					<div class="box-flex-dados">
+						<div class="form-single">
+							<label>Placa:</label>
+							<!-- recebe dado -->
+							<label id="board"></label>
+						</div>
+						<div class="form-single">
+							<label>Carro:</label>
+							<!-- recebe dado -->
+							<label id="car"></label>
+						</div>
+						<div class="form-single">
+							<label>Cor:</label>
+							<!-- recebe dado -->
+							<label id="color"></label>
+						</div>
+						<div class="form-single">
+							<label>Ano:</label>
+							<!-- recebe dado -->
+							<label id="year"></label>
+						</div>
+					</div>
+
+				</div>
+
+				<hr class="line-galery">
 
 
-			
+				<div class="box-dados">
+
+					<div class="form-single">
+						<label>Serviços:</label>
+						<!-- recebe dado -->
+						<label id="services"></label>
+						<label id=""></label>
+					</div>
+
+					<div class="box-flex-dados">
+
+
+						<div class="form-single">
+							<label>Peça:</label>
+							<!-- recebe dado -->
+							<label id="parts"></label>
+							<label id=""></label>
+						</div>
+
+						<div class="form-single">
+							<label>Valor:</label>
+							<!-- recebe dado -->
+							<label id="price-form"></label>
+							<label id=""></label>
+						</div>
+
+
+					</div>
+
+				</div>
+
+				<hr class="line-galery">
+
+			</div>
 
 
 		</form>

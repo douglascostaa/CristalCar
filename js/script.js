@@ -19,10 +19,14 @@
 // document.querySelector('.date').innerHTML = data;
 
 
+
+
 /*Declaração das constantes*/
 const multiStepForm = document.querySelector("[data-multi-step]")
 const formSteps = [...multiStepForm.querySelectorAll("[data-step]")]
-const buttonNext = document.querySelector(".button-next")
+const buttonNext_1 = document.querySelector(".button-next-1")
+const buttonNext_2 = document.querySelector(".button-next-2")
+const buttonNext_3 = document.querySelector(".button-next-3")
 const buttonBack = document.querySelector("#button-back")
 const buttonOrcamento = document.querySelector(".button-orcamento");
 const divButtonBack = document.querySelector(".div-back-button")
@@ -34,7 +38,7 @@ let formMain = document.getElementsByClassName('form-main');
 
 
 // Desativa o botão de voltar na tela inicial 
-function removeStyle(){
+function removeStyle() {
     const sheet = new CSSStyleSheet();
     sheet.insertRule(`#button-back{
         display: none;
@@ -42,7 +46,7 @@ function removeStyle(){
     document.adoptedStyleSheets = [sheet];
 }
 // Ativa o botão nas outras telas
-function addStyle(){
+function addStyle() {
     const sheet = new CSSStyleSheet();
     sheet.insertRule(`#button-back{
         display: block;
@@ -66,7 +70,8 @@ buttonOrcamento.addEventListener("click", (e) => {
     }
     console.log(currentStep)
 })
-buttonNext.addEventListener("click", (e) => {
+
+buttonNext_1.addEventListener("click", (e) => {
     currentStep++;
 
     if (currentStep == 2) {
@@ -76,19 +81,109 @@ buttonNext.addEventListener("click", (e) => {
     console.log(currentStep)
 })
 
-buttonBack.addEventListener("click",(e) => {
+buttonNext_2.addEventListener("click", (e) => {
+    currentStep++;
+
+    if (currentStep == 3) {
+        formMain[2].classList.remove("active");
+        formMain[3].classList.add("active");
+    }
+    console.log(currentStep)
+})
+
+buttonNext_3.addEventListener("click", (e) => {
+    currentStep++;
+
+    if (currentStep == 4) {
+        formMain[3].classList.remove("active");
+        formMain[4].classList.add("active");
+    }
+    console.log(currentStep)
+})
+
+
+buttonBack.addEventListener("click", (e) => {
     if (currentStep == 1) {
         currentStep--;
         formMain[1].classList.remove("active");
         formMain[0].classList.add("active");
         removeStyle();
-    console.log(currentStep)
+        console.log(currentStep)
     }
     if (currentStep == 2) {
         currentStep--;
         formMain[2].classList.remove("active");
         formMain[0].classList.remove("active");
         formMain[1].classList.add("active");
-    console.log(currentStep)
+        console.log(currentStep)
+    }
+    if (currentStep == 3) {
+        currentStep--;
+        formMain[3].classList.remove("active");
+        formMain[2].classList.add("active");
+        formMain[0].classList.remove("active");
+        formMain[1].classList.remove("active");
+        console.log(currentStep)
+    }
+    if (currentStep == 4) {
+        currentStep--;
+        formMain[4].classList.remove("active");
+        formMain[3].classList.add("active");
+        formMain[2].classList.remove("active");
+        formMain[0].classList.remove("active");
+        formMain[1].classList.remove("active");
+        console.log(currentStep)
     }
 })
+
+
+/* MANIPULA FORMULÁRIO: ENVIA/PEGA DADOS */
+const btn = document.querySelector(".button-next-1");
+
+btn.addEventListener("click", function (e) {
+    const cliente_init = document.querySelector("#cliente");
+    const modelo_init = document.querySelector("#modelo");
+    const placa_init = document.querySelector("#placa");
+    const ano_init = document.querySelector("#ano");
+    const cor_init = document.querySelector("#cor");
+
+
+    const cliente = cliente_init.value;
+    const modelo = modelo_init.value;
+    const placa = placa_init.value;
+    const ano = ano_init.value;
+    const cor = cor_init.value;
+
+    document.getElementById("client").innerHTML = cliente;
+    document.getElementById("car").innerHTML = modelo;
+    document.getElementById("board").innerHTML = placa;
+    document.getElementById("year").innerHTML = ano;
+    document.getElementById("color").innerHTML = cor;
+
+})
+
+
+/* MANIPULA TELA DE SERVIÇOS: ENVIA/PEGA DADOS*/
+function serviceList() {
+    const peca_init = document.querySelector("#peca_dinamica");
+    const valor_init = document.querySelector("#price");
+
+    var vetCursos = ["Troca", "Troca e Pintura", "Remover e Instalar", "Recuperar", "Pintura"];
+    var elementos = document.getElementsByClassName("checkServices");
+
+    for (i = 0; i < elementos.length; i++) { 
+        if (elementos[i].checked) { 
+            document.getElementById("services").innerHTML = vetCursos[i];
+        }
+    }
+
+    const peca = peca_init.value;
+    const valor = valor_init.value;
+
+    console.log(peca);
+    console.log(valor);
+
+    document.getElementById("price-form").innerHTML = valor;
+    document.getElementById("parts").innerHTML = peca;
+
+}
