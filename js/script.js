@@ -168,12 +168,12 @@ function serviceList() {
     const peca_init = document.querySelector("#peca_dinamica");
     const valor_init = document.querySelector("#price");
 
-    var vetCursos = ["Troca", "Troca e Pintura", "Remover e Instalar", "Recuperar", "Pintura"];
+    var vetServicos = ["Troca", "Troca e Pintura", "Remover e Instalar", "Recuperar", "Pintura"];
     var elementos = document.getElementsByClassName("checkServices");
 
     for (i = 0; i < elementos.length; i++) { 
         if (elementos[i].checked) { 
-            document.getElementById("services").innerHTML = vetCursos[i];
+            document.getElementById("services").innerHTML = vetServicos[i];
         }
     }
 
