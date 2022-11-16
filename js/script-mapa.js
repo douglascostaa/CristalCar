@@ -12,8 +12,8 @@
 	});
 
 	doc.querySelector('#svg2').addEventListener('click',(e)=>{
-			let id = e.target.id;
-			win.location.href='http://localhost/estado/'+id;
+			// let id = e.target.id;
+			// win.location.href='http://localhost/estado/'+id;
 	});
 
 })(window,document);

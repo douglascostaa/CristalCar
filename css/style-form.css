@@ -77,6 +77,7 @@ form h3 {
 
 form label {
 	margin-bottom: 12px;
+	
 }
 
 form input {
@@ -271,6 +272,11 @@ form input:focus {
 	border-radius: 60px;
 	margin-right: 10px;
 	margin-top: -5px;
+}
+
+#label-title {
+	color:rgb(104, 104, 104);
+	font-size: 12px;	
 }
 
 

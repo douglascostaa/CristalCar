@@ -183,7 +183,7 @@ function serviceList() {
     console.log(peca);
     console.log(valor);
 
-    document.getElementById("price-form").innerHTML = valor;
+    document.getElementById("price-form").innerHTML = 'R$ ' + valor;
     document.getElementById("parts").innerHTML = peca;
 
 }
