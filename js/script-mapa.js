@@ -13,7 +13,8 @@
 
 	doc.querySelector('#svg2').addEventListener('click',(e)=>{
 			let id = e.target.id;
-			win.location.href='http://localhost/estado/'+id;
+			console.log(id);
+			
 	});
 
 })(window,document);

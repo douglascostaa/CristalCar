@@ -162,10 +162,8 @@ btn.addEventListener("click", function (e) {
 
 })
 
-
 /* MANIPULA TELA DE SERVIÇOS: ENVIA/PEGA DADOS*/
 function serviceList() {
-    const peca_init = document.querySelector("#peca_dinamica");
     const valor_init = document.querySelector("#price");
 
     var vetServicos = ["Troca", "Troca e Pintura", "Remover e Instalar", "Recuperar", "Pintura"];
@@ -173,17 +171,28 @@ function serviceList() {
 
     for (i = 0; i < elementos.length; i++) { 
         if (elementos[i].checked) { 
-            document.getElementById("services").innerHTML = vetServicos[i];
+            document.getElementById("services").innerHTML = "<li>" + vetServicos[i] + "</li>";
         }
     }
 
-    const peca = peca_init.value;
     const valor = valor_init.value;
+    document.getElementById("price-form").innerHTML = "R$ " + valor;
 
-    console.log(peca);
-    console.log(valor);
-
-    document.getElementById("price-form").innerHTML = valor;
-    document.getElementById("parts").innerHTML = peca;
 
 }
+
+//BRINCANDO COM O MAPA 
+(function(win,doc){
+	'use strict';
+
+	doc.querySelector('#svg2').addEventListener('click',(e)=>{
+			let id = e.target.id;
+            console.log(id);
+            doc.querySelector('#'+id).style.fill = 'rgb(3,3,3)';
+			document.getElementById("peca_dinamica").innerHTML = id;
+            document.getElementById("parts").innerHTML = id;		
+	});
+
+})(window,document);
+
+
