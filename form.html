@@ -338,7 +338,8 @@
 				
 				<div class="align"></div>
 				<div class="align"></div>
-				<a id="button-next" class="button-next-2"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
+				<!-- <i class="fa-regular fa-circle-question"></i> -->
+				<a id="button-next" onclick="nenhumaPeca()" class="button-next-2"><i class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO </a>
 			</div>
 
 			<div class="form-main" data-step>
@@ -346,26 +347,26 @@
 				<div action="" class="select-peca">
 					<div id="select-header" class="form-duo">
 						<h4>PEÇA: </h4>
-						<label id="peca_dinamica"></label>
+						<label style="margin-top: 8px; margin-left: 8px;" id="peca_dinamica"></label>
 					</div>
 					<div class="org-options">
 						<div class="box-check">
 							<div class="form-duo">
-								<input type="checkbox" name="checkServices" value="1" class="checkServices"><label>Troca</label>
+								<input type="checkbox" onclick="validaCheck()" class="checkServices" value="1" id="checkServices1"><label>Troca</label>
 							</div>
 							<div class="form-duo">
-								<input type="checkbox" name="checkServices" value="2" class="checkServices"><label>Troca e
+								<input type="checkbox"  onclick="validaCheck()" class="checkServices" value="2" id="checkServices2"><label>Troca e
 									Pintura</label>
 							</div>
 							<div class="form-duo">
-								<input type="checkbox" name="checkServices" value="3" class="checkServices"><label>Remover e
+								<input type="checkbox"  onclick="validaCheck()" class="checkServices" value="3" id="checkServices3"><label>Remover e
 									Instalar</label>
 							</div>
 							<div class="form-duo">
-								<input type="checkbox" name="checkServices" value="4" class="checkServices"><label>Recuperar</label>
+								<input type="checkbox"  onclick="validaCheck()" class="checkServices" value="4" id="checkServices4"><label>Recuperar</label>
 							</div>
 							<div class="form-duo">
-								<input type="checkbox" name="checkServices" value="5" class="checkServices"><label>Pintura</label>
+								<input type="checkbox"  onclick="validaCheck()" class="checkServices" value="5" id="checkServices5"><label>Pintura</label>
 							</div>
 						</div>
 
