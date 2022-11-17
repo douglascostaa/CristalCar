@@ -178,6 +178,14 @@ function serviceList() {
     const valor = valor_init.value;
     document.getElementById("price-form").innerHTML = "R$ " + valor;
 
+<<<<<<< HEAD
+    console.log(peca);
+    console.log(valor);
+
+    document.getElementById("price-form").innerHTML = 'R$ ' + valor;
+    document.getElementById("parts").innerHTML = peca;
+=======
+>>>>>>> 62ec48a26993aee93ccc93b2d5632f4638287a67
 
 }
 
