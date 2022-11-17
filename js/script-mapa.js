@@ -12,8 +12,14 @@
 	});
 
 	doc.querySelector('#svg2').addEventListener('click',(e)=>{
+<<<<<<< HEAD
 			// let id = e.target.id;
 			// win.location.href='http://localhost/estado/'+id;
+=======
+			let id = e.target.id;
+			console.log(id);
+			
+>>>>>>> 62ec48a26993aee93ccc93b2d5632f4638287a67
 	});
 
 })(window,document);
