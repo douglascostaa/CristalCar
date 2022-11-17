@@ -169,8 +169,8 @@ function serviceList() {
     var vetServicos = ["Troca", "Troca e Pintura", "Remover e Instalar", "Recuperar", "Pintura"];
     var elementos = document.getElementsByClassName("checkServices");
 
-    for (i = 0; i < elementos.length; i++) { 
-        if (elementos[i].checked) { 
+    for (i = 0; i < elementos.length; i++) {
+        if (elementos[i].checked) {
             document.getElementById("services").innerHTML = "<li>" + vetServicos[i] + "</li>";
         }
     }
@@ -182,17 +182,31 @@ function serviceList() {
 }
 
 //BRINCANDO COM O MAPA 
-(function(win,doc){
-	'use strict';
+(function (win, doc) {
+    'use strict';
 
-	doc.querySelector('#svg2').addEventListener('click',(e)=>{
-			let id = e.target.id;
-            console.log(id);
-            doc.querySelector('#'+id).style.fill = 'rgb(3,3,3)';
-			document.getElementById("peca_dinamica").innerHTML = id;
-            document.getElementById("parts").innerHTML = id;		
-	});
+    doc.getElementsByClassName('button-next-2').disabled = true;
 
-})(window,document);
+    doc.querySelector('#svg2').addEventListener('click', (e) => {
+        let id = e.target.id;
+        console.log(id);
+        doc.querySelector('#' + id).style.fill = 'rgb(3,3,3)';
+        document.getElementById("peca_dinamica").innerHTML = id;
+        document.getElementById("parts").innerHTML = id;
+        doc.getElementsByClassName('.button-next-2').disabled = false;
+    });
+
+    doc.querySelector('#svg2').addEventListener('dblclick', (e) => {
+        let id = e.target.id;
+        console.log(id);
+        doc.querySelector('#' + id).style.fill = '#999999';
+        document.getElementById("peca_dinamica").innerHTML = id;
+        document.getElementById("parts").innerHTML = id;
+    });
+
+    
+
+})(window, document);
+
 
 

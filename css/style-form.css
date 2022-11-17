@@ -18,6 +18,11 @@ body {
 	overflow-y: hidden;
 }
 
+svg {
+	width: 500px;
+	height: 300px;
+}
+
 .header {
 	margin-top: 10px;
 	color: #fff;
