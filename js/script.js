@@ -37,7 +37,7 @@ let currentStep = formSteps.findIndex(step => {
 let formMain = document.getElementsByClassName('form-main');
 
 
-// Desativa o botão de voltar na tela inicial 
+//---------Desativa o botão de voltar na tela inicial--------- 
 function removeStyle() {
     const sheet = new CSSStyleSheet();
     sheet.insertRule(`#button-back{
@@ -53,7 +53,7 @@ function addStyle() {
     }`);
     document.adoptedStyleSheets = [sheet];
 }
-/*Controller das "páginas" de navegação*/
+//---------Controller das "páginas" de navegação---------
 if (currentStep < 0) {
     currentStep = 0
     formMain[0].classList.add("active");
@@ -123,6 +123,7 @@ buttonBack.addEventListener("click", (e) => {
         formMain[2].classList.add("active");
         formMain[0].classList.remove("active");
         formMain[1].classList.remove("active");
+        nenhumaPeca();
         console.log(currentStep)
     }
     if (currentStep == 4) {
@@ -137,7 +138,7 @@ buttonBack.addEventListener("click", (e) => {
 })
 
 
-/* MANIPULA FORMULÁRIO: ENVIA/PEGA DADOS */
+// ----------MANIPULA FORMULÁRIO: ENVIA/PEGA DADOS---------
 const btn = document.querySelector(".button-next-1");
 
 btn.addEventListener("click", function (e) {
@@ -162,34 +163,37 @@ btn.addEventListener("click", function (e) {
 
 })
 
-/* MANIPULA TELA DE SERVIÇOS: ENVIA/PEGA DADOS*/
+//---------MANIPULA TELA DE SERVIÇOS: ENVIA/PEGA DADOS---------
 function serviceList() {
     const valor_init = document.querySelector("#price");
-
-    var vetServicos = ["Troca", "Troca e Pintura", "Remover e Instalar", "Recuperar", "Pintura"];
+    var troca_label = document.querySelector("#checkServices1"); var trocaPinta_label = document.querySelector("#checkServices2");
+    const troca = troca_label.value;
+    const trocaPinta = trocaPinta_label.value;
+    var removeInstala_label = document.querySelector("#checkServices3");
+    const removeInstala = removeInstala_label.value;
+    var recupera_label = document.querySelector("#checkServices4");
+    const recupera = recupera_label.value;
+    var pintura_label = document.querySelector("#checkServices5");
+    const pintura = pintura_label.value;
+    var vetServicos = [troca, trocaPinta, removeInstala, recupera, pintura];
     var elementos = document.getElementsByClassName("checkServices");
+    var precoDinamico = valor_init;
 
     for (i = 0; i < elementos.length; i++) {
         if (elementos[i].checked) {
-            document.getElementById("services").innerHTML = "<li>" + vetServicos[i] + "</li>";
+            document.getElementById("services").innerHTML += "<li>" + vetServicos[i] + "</li>";
         }
     }
 
-    const valor = valor_init.value;
-    document.getElementById("price-form").innerHTML = "R$ " + valor;
-
-    console.log(peca);
-    console.log(valor);
-
-    document.getElementById("price-form").innerHTML = 'R$ ' + valor;
-    document.getElementById("parts").innerHTML = peca;
-
+    document.getElementById("price-form").innerHTML += "<li>" + "R$ " + precoDinamico.value + "</li>";
 }
 
-//BRINCANDO COM O MAPA 
+
+//--------- MANIPULANDO O MAPA ---------
 (function (win, doc) {
     // 'use strict';
 
+<<<<<<< HEAD
     doc.getElementsByClassName('button-next-2').disabled = true;
     doc.querySelector('#svg2').addEventListener('click', (e) => {
             let id = e.target.id;
@@ -226,7 +230,101 @@ function serviceList() {
 
 
 
+=======
+    doc.querySelector('#svg2').addEventListener('click', (e) => {
+        let id = e.target.id;
+        console.log(id);
+        const path = doc.querySelector('#' + id);
+        path.style.fill = 'rgb(3,3,3)';
+        document.getElementById("peca_dinamica").innerHTML = id;
+        document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
+
+    });
+
+    doc.querySelector('#svg2').addEventListener('dblclick', (e) => {
+        let id = e.target.id;
+        console.log(id);
+        doc.querySelector('#' + id).style.fill = '#999999';
+        document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
+        document.getElementById("parts").innerHTML = "SEM PEÇA";
+        nenhumaPeca();
+    });
+
+>>>>>>> 8fc64e4c198bfaef1dc3559c7d2a156cb07c8f79
 })(window, document);
 
+//---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
+function nenhumaPeca() {
+    const peca_carro = document.getElementById("peca_dinamica");
+
+    if (peca_carro.innerHTML == "" || peca_carro.innerHTML == "svg2") {
+        document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
+        document.getElementById("checkServices1").disabled = true;
+        document.getElementById("checkServices2").disabled = true;
+        document.getElementById("checkServices3").disabled = true;
+        document.getElementById("checkServices4").disabled = true;
+        document.getElementById("checkServices5").disabled = true;
+        document.getElementById("price").disabled = true;
+
+        return;
+
+    } else {
+        document.getElementById("checkServices1").disabled = false;
+        document.getElementById("checkServices2").disabled = false;
+        document.getElementById("checkServices3").disabled = false;
+        document.getElementById("checkServices4").disabled = false;
+        document.getElementById("checkServices5").disabled = false;
+        document.getElementById("price").disabled = false;
+
+        return;
+    }
+}
+
+
+//--------- VERIFICA E DESABILITA OS CHECKBOX ---------
+function validaCheck() {
+    const checkbox1 = document.getElementById("checkServices1");
+    const checkbox2 = document.getElementById("checkServices2");
+    const checkbox3 = document.getElementById("checkServices3");
+    const checkbox4 = document.getElementById("checkServices4");
+    const checkbox5 = document.getElementById("checkServices5");
+
+    if (checkbox1.checked) {
+        checkbox2.disabled = true;
+        checkbox3.disabled = true;
+        checkbox4.disabled = true;
+        checkbox5.disabled = true;
+    } else {
+        checkbox1.disabled = false;
+        checkbox2.disabled = false;
+        checkbox3.disabled = false;
+        checkbox4.disabled = false;
+        checkbox5.disabled = false;
+    }
+    if (checkbox2.checked) {
+        checkbox1.disabled = true;
+        checkbox3.disabled = true;
+        checkbox4.disabled = true;
+        checkbox5.disabled = true;
+    }
+    if (checkbox3.checked) {
+        checkbox1.disabled = true;
+        checkbox2.disabled = true;
+        checkbox4.disabled = true;
+        checkbox5.disabled = true;
+    }
+    if (checkbox4.checked) {
+        checkbox1.disabled = true;
+        checkbox2.disabled = true;
+        checkbox3.disabled = true;
+        checkbox5.disabled = true;
+    }
+    if (checkbox5.checked) {
+        checkbox1.disabled = true;
+        checkbox2.disabled = true;
+        checkbox4.disabled = true;
+        checkbox3.disabled = true;
+    }
+}
 
 

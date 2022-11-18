@@ -16,6 +16,7 @@ body {
 	font-family: "Nasa", Times, serif;
 	color: #fff;
 	overflow-y: hidden;
+	overflow: hidden;
 }
 
 svg {
@@ -204,7 +205,7 @@ form input:focus {
 	text-align: center;
 	width: 40vw;
 	border-radius: 15px;
-	background-color: rgb(228, 226, 226);
+	background-color: rgb(247, 247, 247);
 	color: #000;
 	font-size: 20px;
 	font-weight: 400;
@@ -284,7 +285,13 @@ form input:focus {
 	font-size: 12px;	
 }
 
+#price-form li {
+	list-style: none
+}
 
+#parts li {
+	list-style: none
+}
 
 
 @media (max-width: 640px) {
