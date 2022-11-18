@@ -285,7 +285,13 @@ form input:focus {
 	font-size: 12px;	
 }
 
+#price-form li {
+	list-style: none
+}
 
+#parts li {
+	list-style: none
+}
 
 
 @media (max-width: 640px) {
