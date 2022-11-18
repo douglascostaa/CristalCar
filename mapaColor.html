@@ -6,12 +6,16 @@
 	<meta name="viewport"
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+		integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous">
+
+		</script>
 	<title>Mapa Colorido</title>
 </head>
 
 <body>
 
-	
+
 	<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/"
 		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
 		xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -29,9 +33,10 @@
 			</rdf:RDF>
 		</metadata>
 		<sodipodi:namedview inkscape:window-height="750" inkscape:window-width="1264" inkscape:pageshadow="2"
-			inkscape:pageopacity="0.0" guidetolerance="10.0" gridtolerance="10.0" objecttolerance="10.0" borderopacity="1.0"
-			bordercolor="#666666" pagecolor="#ffffff" id="base" inkscape:zoom="0.54844216" inkscape:cx="6.5212891"
-			inkscape:cy="274.51342" inkscape:window-x="0" inkscape:window-y="14" inkscape:current-layer="svg2" />
+			inkscape:pageopacity="0.0" guidetolerance="10.0" gridtolerance="10.0" objecttolerance="10.0"
+			borderopacity="1.0" bordercolor="#666666" pagecolor="#ffffff" id="base" inkscape:zoom="0.54844216"
+			inkscape:cx="6.5212891" inkscape:cy="274.51342" inkscape:window-x="0" inkscape:window-y="14"
+			inkscape:current-layer="svg2" />
 		<defs id="defs4">
 			<style type="text/css" id="style6">
 				.str0 {
@@ -263,7 +268,51 @@
 		</g>
 
 	</svg>
-	<script src="js/script.js"></script>
+	<script>
+
+		(function (win, doc) {
+			'use strict';
+
+			// doc.querySelector('#svg2').addEventListener('mouseover', (e) => {
+			// 	let id = e.target.id;
+			// 	doc.querySelector('#' + id).style.fill = 'rgb(3,3,3)';
+			// });
+
+			// doc.querySelector('#svg2').addEventListener('mouseout', (e) => {
+			// 	let id = e.target.id;
+			// 	doc.querySelector('#' + id).style.fill = '#999999';
+			// });
+
+			doc.querySelector('#svg2').addEventListener('click', (e) => {
+				let id = e.target.id;
+
+				doc.querySelector('#' + id).style.fill = '#999999';
+
+				if (doc.querySelector('#' + id).style.fill = '#999999') {
+					console.log(id);
+					doc.querySelector('#svg2').addEventListener('click', (e) => {
+						doc.querySelector('#' + id).style.fill = 'rgb(255,25,25)';
+					});
+				}
+
+				if (doc.querySelector('#' + id).style.fill = 'rgb(255,25,25)') {
+					console.log(id + 'saida')
+					doc.querySelector('#svg2').addEventListener('click', (e) => {
+						doc.querySelector('#' + id).style.fill = '#999999';
+
+					});
+				}
+
+
+			});
+
+
+		})(window, document);
+
+	</script>
+
+
+
 </body>
 
 </html>
