@@ -193,44 +193,6 @@ function serviceList() {
 (function (win, doc) {
     // 'use strict';
 
-<<<<<<< HEAD
-    doc.getElementsByClassName('button-next-2').disabled = true;
-    doc.querySelector('#svg2').addEventListener('click', (e) => {
-            let id = e.target.id;
-
-            
-            if(doc.querySelector('#' + id).style.fill = 'rgb(153,153,153)'){
-            console.log(id);
-            doc.querySelector('#svg2').addEventListener('click', (e) => {
-                doc.querySelector('#' + id).style.fill = 'rgb(255,25,25)';
-            });
-            document.getElementById("peca_dinamica").innerHTML = id;
-            document.getElementById("parts").innerHTML = id;
-            doc.getElementsByClassName('.button-next-2').disabled = true;
-            }
-
-            if(doc.querySelector('#' + id).style.fill = 'rgb(255,25,25)'){
-                console.log(id);
-                doc.querySelector('#svg2').addEventListener('click', (e) => {
-                    doc.querySelector('#' + id).style.fill = 'rgb(153,153,153)';
-                });
-                document.getElementById("peca_dinamica").innerHTML = id;
-                document.getElementById("parts").innerHTML = id;
-                doc.getElementsByClassName('.button-next-2').disabled = true;
-                }
-    })
-
-    // doc.querySelector('#svg2').addEventListener('dblclick', (e) => {
-    //     let id = e.target.id;
-    //     console.log(id);
-    //     doc.querySelector('#' + id).style.fill = '#999999';
-    //     document.getElementById("peca_dinamica").innerHTML = id;
-    //     document.getElementById("parts").innerHTML = id;
-    // });
-
-
-
-=======
     doc.querySelector('#svg2').addEventListener('click', (e) => {
         let id = e.target.id;
         console.log(id);
@@ -250,7 +212,6 @@ function serviceList() {
         nenhumaPeca();
     });
 
->>>>>>> 8fc64e4c198bfaef1dc3559c7d2a156cb07c8f79
 })(window, document);
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
