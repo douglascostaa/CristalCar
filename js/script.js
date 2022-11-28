@@ -189,69 +189,56 @@ function serviceList() {
 }
 
 
-//--------- MANIPULANDO O MAPA ---------
-(function (win, doc) {
-    // 'use strict';
+//---------SELECIONA AS PEÇAS DO CARRO---------
+(function () {
+    'use strict';
+    const pecas = document.getElementsByTagName('path');
 
-<<<<<<< HEAD
-    doc.getElementsByClassName('button-next-2').disabled = true;
-    doc.querySelector('#svg2').addEventListener('click', (e) => {
-            let id = e.target.id;
 
-            
-            if(doc.querySelector('#' + id).style.fill = 'rgb(153,153,153)'){
-            console.log(id);
-            doc.querySelector('#svg2').addEventListener('click', (e) => {
-                doc.querySelector('#' + id).style.fill = 'rgb(255,25,25)';
-            });
-            document.getElementById("peca_dinamica").innerHTML = id;
-            document.getElementById("parts").innerHTML = id;
-            doc.getElementsByClassName('.button-next-2').disabled = true;
+
+    for (let i = 0; i < pecas.length; i++) {
+        const elemento = pecas[i]
+
+        elemento.addEventListener('click', () => {
+            for (let i = 0; i < pecas.length; i++) {
+                elemento.classList.remove('active');
             }
+            elemento.classList.add('active')
+            if (elemento.classList.contains('active')) {
+                elemento.classList.add('active');
+            }
+        }
+        )
+    }
+    const pecas1 = document.getElementsByTagName('circle');
 
-            if(doc.querySelector('#' + id).style.fill = 'rgb(255,25,25)'){
-                console.log(id);
-                doc.querySelector('#svg2').addEventListener('click', (e) => {
-                    doc.querySelector('#' + id).style.fill = 'rgb(153,153,153)';
-                });
-                document.getElementById("peca_dinamica").innerHTML = id;
-                document.getElementById("parts").innerHTML = id;
-                doc.getElementsByClassName('.button-next-2').disabled = true;
-                }
-    })
+    for (let i = 0; i < pecas1.length; i++) {
+        const elemento = pecas1[i]
+        console.log(pecas1[i]);
+        console.log('Olá')
 
-    // doc.querySelector('#svg2').addEventListener('dblclick', (e) => {
-    //     let id = e.target.id;
-    //     console.log(id);
-    //     doc.querySelector('#' + id).style.fill = '#999999';
-    //     document.getElementById("peca_dinamica").innerHTML = id;
-    //     document.getElementById("parts").innerHTML = id;
-    // });
+        elemento.addEventListener('click', () => {
+            for (let i = 0; i < pecas1.length; i++) {
+                elemento.classList.remove('active');
+                console.log('Remove')
+            }
+            elemento.classList.add('active')
+            if (elemento.classList.contains('active')) {
+                elemento.classList.add('active');
+            }
+        }
+        )
+    }
+    console.log(elemento.classList);
 
 
+    console.log(elemento.classList);
 
-=======
-    doc.querySelector('#svg2').addEventListener('click', (e) => {
-        let id = e.target.id;
-        console.log(id);
-        const path = doc.querySelector('#' + id);
-        path.style.fill = 'rgb(3,3,3)';
-        document.getElementById("peca_dinamica").innerHTML = id;
-        document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
 
-    });
+}
+)
 
-    doc.querySelector('#svg2').addEventListener('dblclick', (e) => {
-        let id = e.target.id;
-        console.log(id);
-        doc.querySelector('#' + id).style.fill = '#999999';
-        document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
-        document.getElementById("parts").innerHTML = "SEM PEÇA";
-        nenhumaPeca();
-    });
-
->>>>>>> 8fc64e4c198bfaef1dc3559c7d2a156cb07c8f79
-})(window, document);
+    (window, document);
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
 function nenhumaPeca() {

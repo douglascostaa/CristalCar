@@ -303,3 +303,12 @@ form input:focus {
 
 
 }
+
+.active
+{
+    fill: #ff0000;
+
+}
+path{
+    fill: #999999;
+}

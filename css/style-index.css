@@ -1,0 +1,89 @@
+.form-single {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+}
+.main {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	justify-content: space-around;
+}
+
+form {
+    height: 50%;
+    width: 80%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+   
+
+}
+
+form img{
+    width: 100%;
+    justify-content: top;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+form h3 {
+	text-align: center;
+}
+
+form label {
+	margin-bottom: 12px;
+    color: #fff;
+	
+}
+
+form input {
+	/* text-transform: uppercase; */
+	padding: 5px;
+	height: 30px;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	border-bottom: rgb(104, 104, 104) 2px solid;
+    margin-bottom: 20px;
+}
+
+form input:focus {
+	outline: none;
+	border: none;
+	border-bottom: rgb(255, 136, 0) 4px solid;
+}
+
+/* #icon{
+    position: absolute;
+    top:50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: url('assets/images/icons/show.svg');
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+} */
+
+#button-end {
+
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	border: #fff 1px solid;
+	padding: 15px;
+	width: 200px;
+	font-size: 11px;
+	cursor: pointer;
+	background-color: rgb(255, 136, 0);
+    margin-bottom: 100px;
+}
+
+path{
+    fill: #999999;
+}
