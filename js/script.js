@@ -194,6 +194,13 @@ function serviceList() {
     'use strict';
     const pecas = document.getElementsByTagName('path');
 
+    doc.querySelector('#svg2').addEventListener('click', (e) => {
+        let id = e.target.id;
+        console.log(id);
+        const path = doc.querySelector('#' + id);
+        path.style.fill = 'rgb(3,3,3)';
+        document.getElementById("peca_dinamica").innerHTML = id;
+        document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
 
 
     for (let i = 0; i < pecas.length; i++) {
@@ -232,6 +239,16 @@ function serviceList() {
 }
 )
 
+    doc.querySelector('#svg2').addEventListener('dblclick', (e) => {
+        let id = e.target.id;
+        console.log(id);
+        doc.querySelector('#' + id).style.fill = '#999999';
+        document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
+        document.getElementById("parts").innerHTML = "SEM PEÇA";
+        nenhumaPeca();
+    });
+
+})(window, document);
     (window, document);
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
