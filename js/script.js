@@ -236,12 +236,6 @@ function serviceList() {
         }
         )
     }
-    console.log(elemento.classList);
-
-
-    console.log(elemento.classList);
-
-
 }
 )
 
@@ -331,4 +325,18 @@ function validaCheck() {
     }
 }
 
+
+// clientes = [[Nome: Victor, Carro: IXL1929, Peças: [Capo,Porta], Fotos: [img1,img2,im3]], [Nome: Douglas, Carro: IXL1929, Peças: [Porta], Fotos: [img1,img3]]];
+
+// clientes[index].Fotos.img1;
+
+
+// clients[index];
+
+// listItemClientes.addEventListener('onclick'){
+//     for(let i =0; clientes.lenght>i; i++){
+
+//         request.FireBase.clients[index].Fotos
+//     }
+// }
 
