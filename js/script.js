@@ -189,9 +189,10 @@ function serviceList() {
 }
 
 
-//--------- MANIPULANDO O MAPA ---------
-(function (win, doc) {
-    // 'use strict';
+//---------SELECIONA AS PEÇAS DO CARRO---------
+(function () {
+    'use strict';
+    const pecas = document.getElementsByTagName('path');
 
     doc.querySelector('#svg2').addEventListener('click', (e) => {
         let id = e.target.id;
@@ -201,7 +202,48 @@ function serviceList() {
         document.getElementById("peca_dinamica").innerHTML = id;
         document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
 
-    });
+
+    for (let i = 0; i < pecas.length; i++) {
+        const elemento = pecas[i]
+
+        elemento.addEventListener('click', () => {
+            for (let i = 0; i < pecas.length; i++) {
+                elemento.classList.remove('active');
+            }
+            elemento.classList.add('active')
+            if (elemento.classList.contains('active')) {
+                elemento.classList.add('active');
+            }
+        }
+        )
+    }
+    const pecas1 = document.getElementsByTagName('circle');
+
+    for (let i = 0; i < pecas1.length; i++) {
+        const elemento = pecas1[i]
+        console.log(pecas1[i]);
+        console.log('Olá')
+
+        elemento.addEventListener('click', () => {
+            for (let i = 0; i < pecas1.length; i++) {
+                elemento.classList.remove('active');
+                console.log('Remove')
+            }
+            elemento.classList.add('active')
+            if (elemento.classList.contains('active')) {
+                elemento.classList.add('active');
+            }
+        }
+        )
+    }
+    console.log(elemento.classList);
+
+
+    console.log(elemento.classList);
+
+
+}
+)
 
     doc.querySelector('#svg2').addEventListener('dblclick', (e) => {
         let id = e.target.id;
@@ -213,6 +255,7 @@ function serviceList() {
     });
 
 })(window, document);
+    (window, document);
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
 function nenhumaPeca() {

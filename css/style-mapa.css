@@ -1,0 +1,12 @@
+path{
+    fill: #999999;
+}
+
+.active
+{
+    fill: #ff0000;
+}
+
+body{
+    background-color: #ffffff;
+}
