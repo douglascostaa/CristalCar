@@ -27,6 +27,7 @@ const formSteps = [...multiStepForm.querySelectorAll("[data-step]")]
 const buttonNext_1 = document.querySelector(".button-next-1")
 const buttonNext_2 = document.querySelector(".button-next-2")
 const buttonNext_3 = document.querySelector(".button-next-3")
+const buttoEnd = document.querySelector(".button-end")
 const buttonBack = document.querySelector("#button-back")
 const buttonOrcamento = document.querySelector(".button-orcamento");
 const divButtonBack = document.querySelector(".div-back-button")
@@ -92,16 +93,30 @@ buttonNext_2.addEventListener("click", (e) => {
 })
 
 buttonNext_3.addEventListener("click", (e) => {
-    currentStep++;
 
+    if (currentStep == 3) {
+        currentStep--;
+        formMain[1].classList.remove("active");
+        formMain[0].classList.remove("active");
+        formMain[3].classList.remove("active");
+        formMain[2].classList.add("active");
+        console.log(currentStep)
+    }
+})
+
+buttoEnd.addEventListener("click", (e) => {
+    currentStep++;
     if (currentStep == 4) {
+        formMain[0].classList.remove("active");
+        formMain[1].classList.remove("active");
+        formMain[2].classList.remove("active");
         formMain[3].classList.remove("active");
         formMain[4].classList.add("active");
     }
     console.log(currentStep)
 })
 
-
+//---------Controller das "páginas" de navegação (VOLTAR)---------
 buttonBack.addEventListener("click", (e) => {
     if (currentStep == 1) {
         currentStep--;
@@ -123,6 +138,8 @@ buttonBack.addEventListener("click", (e) => {
         formMain[2].classList.add("active");
         formMain[0].classList.remove("active");
         formMain[1].classList.remove("active");
+        //TO DO: REMOVER OS ITENS: PEÇA SELECIONADA
+        //WARNING: TEM QUE CUIDAR PARA CONSEGUIR ADICIONAR MAIS QUE UMA 
         nenhumaPeca();
         console.log(currentStep)
     }
@@ -133,6 +150,8 @@ buttonBack.addEventListener("click", (e) => {
         formMain[2].classList.remove("active");
         formMain[0].classList.remove("active");
         formMain[1].classList.remove("active");
+        
+        //TO DO: REMOVER OS ITENS: VALOR, SERVIÇOS
         console.log(currentStep)
     }
 })
@@ -194,62 +213,46 @@ function serviceList() {
     'use strict';
     const pecas = document.getElementsByTagName('path');
 
-    doc.querySelector('#svg2').addEventListener('click', (e) => {
-        let id = e.target.id;
-        console.log(id);
-        const path = doc.querySelector('#' + id);
-        path.style.fill = 'rgb(3,3,3)';
-        document.getElementById("peca_dinamica").innerHTML = id;
-        document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
+    // doc.querySelector('#svg2').addEventListener('click', (e) => {
+    //     let id = e.target.id;
+    //     console.log(id);
+    //     const path = doc.querySelector('#' + id);
+    //     path.style.fill = 'rgb(3,3,3)';
+    //     document.getElementById("peca_dinamica").innerHTML = id;
+    //     document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
 
 
+    // })
     for (let i = 0; i < pecas.length; i++) {
         const elemento = pecas[i]
 
-        elemento.addEventListener('click', () => {
+        elemento.addEventListener('click', (event) => {
             for (let i = 0; i < pecas.length; i++) {
-                elemento.classList.remove('active');
+                pecas[i].classList.remove('active');
             }
             elemento.classList.add('active')
             if (elemento.classList.contains('active')) {
                 elemento.classList.add('active');
             }
+            const el = event.target;
+            const id = el.id;
+                document.getElementById("peca_dinamica").innerHTML = id;
+                document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
+            console.log(id);
         }
         )
     }
-    const pecas1 = document.getElementsByTagName('circle');
 
-    for (let i = 0; i < pecas1.length; i++) {
-        const elemento = pecas1[i]
-        console.log(pecas1[i]);
-        console.log('Olá')
-
-        elemento.addEventListener('click', () => {
-            for (let i = 0; i < pecas1.length; i++) {
-                elemento.classList.remove('active');
-                console.log('Remove')
-            }
-            elemento.classList.add('active')
-            if (elemento.classList.contains('active')) {
-                elemento.classList.add('active');
-            }
-        }
-        )
-    }
-}
-)
-
-    doc.querySelector('#svg2').addEventListener('dblclick', (e) => {
+    document.querySelector('#svg2').addEventListener('dblclick', (e) => {
         let id = e.target.id;
         console.log(id);
-        doc.querySelector('#' + id).style.fill = '#999999';
+        document.querySelector('#' + id).style.fill = '#999999';
         document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
         document.getElementById("parts").innerHTML = "SEM PEÇA";
         nenhumaPeca();
     });
 
 })(window, document);
-    (window, document);
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
 function nenhumaPeca() {
@@ -324,6 +327,7 @@ function validaCheck() {
         checkbox3.disabled = true;
     }
 }
+        
 
 
 // clientes = [[Nome: Victor, Carro: IXL1929, Peças: [Capo,Porta], Fotos: [img1,img2,im3]], [Nome: Douglas, Carro: IXL1929, Peças: [Porta], Fotos: [img1,img3]]];
