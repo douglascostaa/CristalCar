@@ -80,4 +80,36 @@ canvas {
 	width: 50%;
 	display: flex;
 	align-items: center;
+	justify-content: center;
+}
+.janela-modal{
+	width: 100vw;
+	height: 60vh;
+	position: relative;
+	top:0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+}
+
+.modal{
+	width: 60%;
+	min-width: 300;
+	height: 80%;
+	min-height: 400;
+	background-color: rgba(255, 255, 255, 0.521);
+	backdrop-filter: blur(10px);
+	border-radius: 2px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal p{
+	padding-bottom: 20px;
+	padding-top: 20px;
 }

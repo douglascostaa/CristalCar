@@ -32,6 +32,11 @@ const buttoEnd = document.querySelector(".button-end")
 const buttonBack = document.querySelector("#button-back")
 const buttonOrcamento = document.querySelector(".button-orcamento")
 const divButtonBack = document.querySelector(".div-back-button")
+const buttonTakePicture = document.querySelector('.button-picture')
+const buttonTakeAnotherPicture = document.querySelector('.button-take-another-photo')
+const video = document.querySelector('video')
+const photoGallery = document.getElementsByClassName('photo-gallery')
+const modal = document.getElementById('modal')
 
 let currentStep = formSteps.findIndex(step => {
     return step.classList.contains("active")
@@ -79,12 +84,12 @@ buttonNext_1.addEventListener("click", (e) => {
     if (currentStep == 2) {
         formMain[1].classList.remove("active");
         formMain[2].classList.add("active");
+        modal.style.display='none';
     }
     console.log(currentStep)
 })
 
 //Abre a câmera para tirar fotos e salva as fotos na tela final
-var video = document.querySelector('video');
 
 navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
@@ -94,20 +99,40 @@ navigator.mediaDevices.getUserMedia({ video: true })
     .catch(error => {
         console.log(error);
     })
-const photoGallery = document.getElementById('photo-gallery');
+
+buttonTakePicture.addEventListener('click',()=>{
+    video.style.display='none';
+    modal.style.display = '';
+    buttonTakePicture.style.display = 'none';
+    var canvas = document.querySelector('canvas');
+    
+    canvas.width = 500;
+    canvas.height = 400;
+    
+    var context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0, 500, 400);
+   
+    for(let i =0; i<=photoGallery.length; i++){
+        console.log('Tirei a foto', i)
+        const img = document.createElement('img');
+        img.src = canvas.toDataURL('image/png');
+        photoGallery[i].appendChild(img);
+        console.log(photoGallery)
+    }
+    
+});
+
+buttonTakeAnotherPicture.addEventListener('click',()=>{
+    console.log('oi')
+    video.style.display ='block';
+    modal.style.display = 'none';
+    buttonTakePicture.style.display = 'block';
+        img.src = canvas.toDataURL('image/png');
+        photoGallery.removeChild(img);
+})
 
 buttonNext_2.addEventListener("click", (e) => {
     currentStep++;
-
-
-    var canvas = document.querySelector('canvas');
-    canvas.height = 150;
-    canvas.width = 300;
-    var context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0,300,200);
-    const img = document.createElement('img');
-    img.src = canvas.toDataURL('image/png');
-    photoGallery.appendChild(img);
 
     if (currentStep == 3) {
         formMain[2].classList.remove("active");
@@ -189,6 +214,12 @@ buttonBack.addEventListener("click", (e) => {
         formMain[0].classList.remove("active");
         formMain[1].classList.remove("active");
 
+        //REMOVE A PEÇA SELECIONADA
+        const pecas = document.getElementsByTagName('path');
+        for (let i = 0; i < pecas.length; i++) {
+            pecas[i].classList.remove('active');
+        }
+
         //TO DO: REMOVER OS ITENS: VALOR, SERVIÇOS
         console.log(currentStep)
     }
@@ -242,7 +273,8 @@ btn.addEventListener("click", function (e) {
 //---------MANIPULA TELA DE SERVIÇOS: ENVIA/PEGA DADOS---------
 function serviceList() {
     const valor_init = document.querySelector("#price");
-    var troca_label = document.querySelector("#checkServices1"); var trocaPinta_label = document.querySelector("#checkServices2");
+    var troca_label = document.querySelector("#checkServices1");
+    var trocaPinta_label = document.querySelector("#checkServices2");
     const troca = troca_label.value;
     const trocaPinta = trocaPinta_label.value;
     var removeInstala_label = document.querySelector("#checkServices3");

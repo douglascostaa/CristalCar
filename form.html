@@ -79,24 +79,38 @@
 				</a>
 			</div>
 
-			<!-- Tirar Foto (TEST) -->
+			<!-- Tirar foto da peça a ser consertada - (ETAPA 2) -->
 
 			<div class="form-main" data-step>
 
-			<h4 style="margin-bottom: 55px;">Tirar foto da peça:</h4>
+				<h4 style="margin-bottom: 55px;">Tirar foto da peça:</h4>
 
-			<video autoplay></video>
-			
-			<a id="button-next" class="button-next-2"><i class="fa-solid fa-angle-right"></i> TIRAR FOTO
-			</a></button>
+				<video autoplay style=></video>
+				<div class="janela-modal" id="modal">
+					<div class="modal">
+						<canvas></canvas>
+						<div class="photo-gallery"></div>
+						<p>Deseja utilizar esta foto ?</p>
+						<div class="buttons-photo">
+							<a id="button-next" class="button-next-2"><i class="fa-solid fa-camera"></i> UTILIZAR FOTO
+							</a></button>
+							<a id="button-next" class="button-take-another-photo"><i class="fa-solid fa-camera"></i> TIRAR
+								OUTRA FOTO
+							</a></button>
+						</div>
+
+					</div>
+				</div>
+				<a id="button-next" class="button-picture"><i class="fa-solid fa-camera"></i> TIRAR FOTO
+				</a></button>
 
 
 			</div>
-			<!-- Seleção da peça a ser consertada - (ETAPA 2) -->
+			<!-- Seleção da peça a ser consertada - (ETAPA 3) -->
 
 			<div class="form-main" data-step>
 
-				<!-- <img style="width: 200px;" class="img-carro" src="assets/images/image4.png" alt=""> -->
+
 				<h4 style="margin-bottom: 55px;">Selecione uma peça para orçar:</h4>
 
 				<svg id="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2256.14 1665">
@@ -158,7 +172,8 @@
 								<path class="cls-1"
 									d="M1841.29,1752.79a124.5,124.5,0,1,0,124.5,124.5A124.5,124.5,0,0,0,1841.29,1752.79Zm-.36,218.5a93.25,93.25,0,1,1,93.25-93.25A93.25,93.25,0,0,1,1840.93,1971.29Z"
 									transform="translate(-134.39 -361.5)" />
-									<path class="cls-1" d="M1613.29 1516.54a93.25 93.25 0 1 0 186.5 0a93.25 93.25 0 1 0 -186.5 0" />
+								<path class="cls-1"
+									d="M1613.29 1516.54a93.25 93.25 0 1 0 186.5 0a93.25 93.25 0 1 0 -186.5 0" />
 							</g>
 							<g id="friso_lateral_traseiro" data-name="friso lateral traseiro">
 								<path class="cls-1" d="M1686.5,1891.5a271.23,271.23,0,0,1,21-111l-295,11,4.82,111.26Z"
@@ -226,7 +241,8 @@
 								<path class="cls-1"
 									d="M2350.5,902.5a307.57,307.57,0,0,1-108-6v94.55l9,1.57V1395.5l-16.12,2.62v90.94a322.8,322.8,0,0,1,115.12-7.41Z"
 									transform="translate(-134.39 -361.5)" />
-									<path class="cls-1" d="M2254.14 535L2254.14 1127.56L2216.11 1120.15L2216.11 541L2254.14 535z" />
+								<path class="cls-1"
+									d="M2254.14 535L2254.14 1127.56L2216.11 1120.15L2216.11 541L2254.14 535z" />
 							</g>
 							<g id="teto">
 								<path class="cls-1"
@@ -298,11 +314,14 @@
 							<g id="friso_lateral_traseiro-2" data-name="friso lateral traseiro">
 								<path class="cls-1" d="M1686.5,496.5a271.23,271.23,0,0,0,21,111l-295-11,4.82-111.26Z"
 									transform="translate(-134.39 -361.5)" />
-									<path class="cls-1" d="M1554.43 104.32L1552.11 135L1282.93 123.74L1282.93 97.62L1554.43 104.32z" />
+								<path class="cls-1"
+									d="M1554.43 104.32L1552.11 135L1282.93 123.74L1282.93 97.62L1554.43 104.32z" />
 							</g>
 							<g id="friso_lateral_frontal-2" data-name="friso lateral frontal">
-								<path class="cls-1" d="M846.11 115.26L1282.93 123.74L1278.11 235L846.11 223L846.11 115.26z" />
-								<path class="cls-1" d="M846.11 84.91L1282.93 97.62L1282.93 123.74L846.11 115.26L846.11 84.91z" />
+								<path class="cls-1"
+									d="M846.11 115.26L1282.93 123.74L1278.11 235L846.11 223L846.11 115.26z" />
+								<path class="cls-1"
+									d="M846.11 84.91L1282.93 97.62L1282.93 123.74L846.11 115.26L846.11 84.91z" />
 
 							</g>
 							<g id="frente_do_veículol-2" data-name="frente do veículol">
@@ -325,7 +344,8 @@
 								<path class="cls-1"
 									d="M944.5,488A124.5,124.5,0,1,0,820,612.5,124.5,124.5,0,0,0,944.5,488Zm-31.62-.75A93.25,93.25,0,1,1,819.63,394,93.25,93.25,0,0,1,912.88,487.25Z"
 									transform="translate(-134.39 -361.5)" />
-									<path id="_Caminho_composto_2" data-name="Caminho composto>" class="cls-1" d="M591.99 125.75a93.25 93.25 0 1 0 186.5 0a93.25 93.25 0 1 0 -186.5 0" />
+								<path id="_Caminho_composto_2" data-name="Caminho composto>" class="cls-1"
+									d="M591.99 125.75a93.25 93.25 0 1 0 186.5 0a93.25 93.25 0 1 0 -186.5 0" />
 
 							</g>
 						</g>
@@ -338,9 +358,9 @@
 				<div class="align"></div>
 				<!-- <i class="fa-regular fa-circle-question"></i> -->
 				<a id="button-next" onclick="nenhumaPeca()" class="button-next-3"><i
-						class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO123 </a>
+						class="fa-solid fa-angle-right"></i> CONTINUAR ORÇAMENTO</a>
 			</div>
-
+			<!-- Finalização do orçamento - (ETAPA 4) -->
 			<div class="form-main" data-step>
 
 				<div action="" class="select-peca">
@@ -471,10 +491,10 @@
 
 
 				<canvas></canvas>
-				<div id="photo-gallery"></div>
+				<div class="photo-gallery"></div>
 				<a id="button-next" class="button-next-4" onclick="serviceList()"><i
-					class="fa-solid fa-angle-right"></i>
-				CONTINUAR ORÇAMENTO </a>
+						class="fa-solid fa-angle-right"></i>
+					IMPRIMIR ORÇAMENTO </a>
 			</div>
 
 
