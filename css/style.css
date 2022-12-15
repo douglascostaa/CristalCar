@@ -69,3 +69,15 @@ li {
 	list-style-type: none;
   }
 
+
+canvas {
+	width: 40%;
+	height: 40%;
+	display: none;
+}
+
+#photo-gallery{
+	width: 50%;
+	display: flex;
+	align-items: center;
+}

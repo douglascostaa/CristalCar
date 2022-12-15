@@ -27,9 +27,10 @@ const formSteps = [...multiStepForm.querySelectorAll("[data-step]")]
 const buttonNext_1 = document.querySelector(".button-next-1")
 const buttonNext_2 = document.querySelector(".button-next-2")
 const buttonNext_3 = document.querySelector(".button-next-3")
+const buttonNext_4 = document.querySelector(".button-next-4")
 const buttoEnd = document.querySelector(".button-end")
 const buttonBack = document.querySelector("#button-back")
-const buttonOrcamento = document.querySelector(".button-orcamento");
+const buttonOrcamento = document.querySelector(".button-orcamento")
 const divButtonBack = document.querySelector(".div-back-button")
 
 let currentStep = formSteps.findIndex(step => {
@@ -82,8 +83,31 @@ buttonNext_1.addEventListener("click", (e) => {
     console.log(currentStep)
 })
 
+//Abre a câmera para tirar fotos e salva as fotos na tela final
+var video = document.querySelector('video');
+
+navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => {
+        video.srcObject = stream;
+        video.play();
+    })
+    .catch(error => {
+        console.log(error);
+    })
+const photoGallery = document.getElementById('photo-gallery');
+
 buttonNext_2.addEventListener("click", (e) => {
     currentStep++;
+
+
+    var canvas = document.querySelector('canvas');
+    canvas.height = 150;
+    canvas.width = 300;
+    var context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0,300,200);
+    const img = document.createElement('img');
+    img.src = canvas.toDataURL('image/png');
+    photoGallery.appendChild(img);
 
     if (currentStep == 3) {
         formMain[2].classList.remove("active");
@@ -93,12 +117,24 @@ buttonNext_2.addEventListener("click", (e) => {
 })
 
 buttonNext_3.addEventListener("click", (e) => {
-
-    if (currentStep == 3) {
-        currentStep--;
+    currentStep++;
+    if (currentStep == 4) {
         formMain[1].classList.remove("active");
         formMain[0].classList.remove("active");
         formMain[3].classList.remove("active");
+        formMain[4].classList.add("active");
+        console.log(currentStep)
+    }
+})
+buttonNext_4.addEventListener("click", (e) => {
+
+
+    if (currentStep == 4) {
+        currentStep = currentStep - 2;
+        formMain[1].classList.remove("active");
+        formMain[0].classList.remove("active");
+        formMain[3].classList.remove("active");
+        formMain[4].classList.remove("active");
         formMain[2].classList.add("active");
         console.log(currentStep)
     }
@@ -106,12 +142,14 @@ buttonNext_3.addEventListener("click", (e) => {
 
 buttoEnd.addEventListener("click", (e) => {
     currentStep++;
-    if (currentStep == 4) {
+    if (currentStep == 5) {
         formMain[0].classList.remove("active");
         formMain[1].classList.remove("active");
         formMain[2].classList.remove("active");
         formMain[3].classList.remove("active");
-        formMain[4].classList.add("active");
+        formMain[4].classList.remove("active");
+        formMain[5].classList.add("active");
+
     }
     console.log(currentStep)
 })
@@ -150,7 +188,19 @@ buttonBack.addEventListener("click", (e) => {
         formMain[2].classList.remove("active");
         formMain[0].classList.remove("active");
         formMain[1].classList.remove("active");
-        
+
+        //TO DO: REMOVER OS ITENS: VALOR, SERVIÇOS
+        console.log(currentStep)
+    }
+    if (currentStep == 5) {
+        currentStep--;
+        formMain[5].classList.remove("active");
+        formMain[4].classList.add("active");
+        formMain[2].classList.remove("active");
+        formMain[3].classList.remove("active");
+        formMain[0].classList.remove("active");
+        formMain[1].classList.remove("active");
+
         //TO DO: REMOVER OS ITENS: VALOR, SERVIÇOS
         console.log(currentStep)
     }
@@ -181,6 +231,13 @@ btn.addEventListener("click", function (e) {
     document.getElementById("color").innerHTML = cor;
 
 })
+
+
+
+
+
+
+
 
 //---------MANIPULA TELA DE SERVIÇOS: ENVIA/PEGA DADOS---------
 function serviceList() {
@@ -236,8 +293,8 @@ function serviceList() {
             }
             const el = event.target;
             const id = el.id;
-                document.getElementById("peca_dinamica").innerHTML = id;
-                document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
+            document.getElementById("peca_dinamica").innerHTML = id;
+            document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
             console.log(id);
         }
         )
@@ -327,7 +384,7 @@ function validaCheck() {
         checkbox3.disabled = true;
     }
 }
-        
+
 
 
 // clientes = [[Nome: Victor, Carro: IXL1929, Peças: [Capo,Porta], Fotos: [img1,img2,im3]], [Nome: Douglas, Carro: IXL1929, Peças: [Porta], Fotos: [img1,img3]]];
