@@ -71,9 +71,9 @@ li {
 
 
 canvas {
-	width: 40%;
-	height: 40%;
-	display: none;
+	width: 50%;
+	height: 100%;
+	display: block;
 }
 
 #photo-gallery{
@@ -99,7 +99,7 @@ canvas {
 	min-width: 300;
 	height: 80%;
 	min-height: 400;
-	background-color: rgba(255, 255, 255, 0.521);
+	background-color: rgba(255, 132, 0,);
 	backdrop-filter: blur(10px);
 	border-radius: 2px;
 	padding: 20px;
@@ -112,4 +112,17 @@ canvas {
 .modal p{
 	padding-bottom: 20px;
 	padding-top: 20px;
+}
+
+#final-svg{
+	height: 50%;
+	width: 40%;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+}
+
+#svg3 {
+	width: 250px;
+	height: 250px;
 }

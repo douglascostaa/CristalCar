@@ -32,6 +32,7 @@ const buttoEnd = document.querySelector(".button-end")
 const buttonBack = document.querySelector("#button-back")
 const buttonOrcamento = document.querySelector(".button-orcamento")
 const divButtonBack = document.querySelector(".div-back-button")
+const buttonPictureRequest = document.querySelector('.button-picture-request')
 const buttonTakePicture = document.querySelector('.button-picture')
 const buttonTakeAnotherPicture = document.querySelector('.button-take-another-photo')
 const video = document.querySelector('video')
@@ -89,7 +90,7 @@ buttonNext_1.addEventListener("click", (e) => {
     console.log(currentStep)
 })
 
-//Abre a câmera para tirar fotos e salva as fotos na tela final
+// Abre a câmera para tirar fotos e salva as fotos na tela final
 
 navigator.mediaDevices.getUserMedia({ video: true })
     .then(stream => {
@@ -100,27 +101,57 @@ navigator.mediaDevices.getUserMedia({ video: true })
         console.log(error);
     })
 
-buttonTakePicture.addEventListener('click',()=>{
+buttonPictureRequest.addEventListener('click',()=>{
+    currentStep++;
+
+    if (currentStep == 3) {
+        formMain[2].classList.remove("active"); 
+        formMain[3].classList.add("active");
+    }
+    console.log(currentStep)
+    console.log('oi')
+    video.style.display ='block';
+    modal.style.display = 'none';
+    buttonTakePicture.style.display = 'block';
+    // img.src = canvas.toDataURL('image/png');
+    // photoGallery.removeChild(img);
+
+});
+
+buttonTakePicture.addEventListener('click' ,()=>{
+    console.log(currentStep)
     video.style.display='none';
     modal.style.display = '';
     buttonTakePicture.style.display = 'none';
     var canvas = document.querySelector('canvas');
-    
-    canvas.width = 500;
-    canvas.height = 400;
+    canvas.width = 200;
+    canvas.height = 200;
     
     var context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0, 500, 400);
-   
-    for(let i =0; i<=photoGallery.length; i++){
-        console.log('Tirei a foto', i)
-        const img = document.createElement('img');
-        img.src = canvas.toDataURL('image/png');
-        photoGallery[i].appendChild(img);
-        console.log(photoGallery)
-    }
+    context.drawImage(video, 0, 0, 200, 200);
     
 });
+    // console.log(currentStep)
+    // video.style.display='none';
+    // modal.style.display = '';
+    // buttonTakePicture.style.display = 'none';
+    // var canvas = document.querySelector('canvas');
+    // currentStep++;
+    
+    // canvas.width = 500;
+    // canvas.height = 400;
+    
+    // var context = canvas.getContext('2d');
+    // context.drawImage(video, 0, 0, 500, 400);
+   
+    // // for(let i =0; i<=photoGallery.length; i++){
+    // //     console.log('Tirei a foto', i)
+    // //     const img = document.createElement('img');
+    // //     img.src = canvas.toDataURL('image/png');
+    // //     photoGallery[i].appendChild(img);
+    // //     console.log(photoGallery)
+    // // }
+
 
 buttonTakeAnotherPicture.addEventListener('click',()=>{
     console.log('oi')
@@ -132,11 +163,11 @@ buttonTakeAnotherPicture.addEventListener('click',()=>{
 })
 
 buttonNext_2.addEventListener("click", (e) => {
-    currentStep++;
+    currentStep= currentStep+2;
 
-    if (currentStep == 3) {
+    if (currentStep == 4) {
         formMain[2].classList.remove("active");
-        formMain[3].classList.add("active");
+        formMain[4].classList.add("active");
     }
     console.log(currentStep)
 })
@@ -152,7 +183,7 @@ buttonNext_3.addEventListener("click", (e) => {
     }
 })
 buttonNext_4.addEventListener("click", (e) => {
-
+    console.log(currentStep)
 
     if (currentStep == 4) {
         currentStep = currentStep - 2;
@@ -174,7 +205,6 @@ buttoEnd.addEventListener("click", (e) => {
         formMain[3].classList.remove("active");
         formMain[4].classList.remove("active");
         formMain[5].classList.add("active");
-
     }
     console.log(currentStep)
 })
@@ -207,10 +237,10 @@ buttonBack.addEventListener("click", (e) => {
         console.log(currentStep)
     }
     if (currentStep == 4) {
-        currentStep--;
+        currentStep = currentStep-2;
         formMain[4].classList.remove("active");
-        formMain[3].classList.add("active");
-        formMain[2].classList.remove("active");
+        formMain[2].classList.add("active");
+        formMain[3].classList.remove("active");
         formMain[0].classList.remove("active");
         formMain[1].classList.remove("active");
 
