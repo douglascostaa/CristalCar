@@ -18,8 +18,8 @@
 // const data =  toLocaleDateString();
 // document.querySelector('.date').innerHTML = data;
 
-
-
+// Variável Global que permite armazenar o valor do id clicado
+var parts;
 
 /*Declaração das constantes*/
 const multiStepForm = document.querySelector("[data-multi-step]")
@@ -88,6 +88,7 @@ buttonNext_1.addEventListener("click", (e) => {
         modal.style.display = 'none';
     }
     console.log(currentStep)
+    selectParts();
 })
 
 // Abre a câmera para tirar fotos e salva as fotos na tela final
@@ -195,7 +196,7 @@ buttonNext_4.addEventListener("click", (e) => {
         formMain[2].classList.add("active");
         console.log(currentStep)
     }
-   
+
 })
 
 buttoEnd.addEventListener("click", (e) => {
@@ -209,6 +210,10 @@ buttoEnd.addEventListener("click", (e) => {
         formMain[5].classList.add("active");
     }
     console.log(currentStep)
+    
+    document.getElementById("parts").innerHTML += "<li>" + parts + "</li>"
+
+
 })
 
 //---------Controller das "páginas" de navegação (VOLTAR)---------
@@ -331,7 +336,7 @@ function serviceList() {
 
 //---------SELECIONA AS PEÇAS DO CARRO---------
 
-(function selectParts() {
+function selectParts() {
     'use strict';
     const pecas = document.getElementsByTagName('path');
 
@@ -346,22 +351,21 @@ function serviceList() {
             if (elemento.classList.contains('active')) {
                 elemento.classList.add('active');
             }
-
             const el = event.target;
             const id = el.id;
 
+            parts = id;
+
+            (document.getElementById("peca_dinamica").innerHTML = id);
+
             console.log(id)
-            document.getElementById("peca_dinamica").innerHTML = id;
-            
-             
-            buttonNext_4
-            document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
 
-
-
-            // console.log(id);
         })
+         
+        
     }
+
+   
 
     // document.querySelector('#svg2').addEventListener('click', (e) => {
     //     let id = e.target.id;
@@ -372,7 +376,14 @@ function serviceList() {
     //     nenhumaPeca();
     // });
 
-})(window, document);
+}
+
+
+
+
+
+
+
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
 function nenhumaPeca() {
