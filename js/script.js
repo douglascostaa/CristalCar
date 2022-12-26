@@ -85,7 +85,7 @@ buttonNext_1.addEventListener("click", (e) => {
     if (currentStep == 2) {
         formMain[1].classList.remove("active");
         formMain[2].classList.add("active");
-        modal.style.display='none';
+        modal.style.display = 'none';
     }
     console.log(currentStep)
 })
@@ -101,16 +101,16 @@ navigator.mediaDevices.getUserMedia({ video: true })
         console.log(error);
     })
 
-buttonPictureRequest.addEventListener('click',()=>{
+buttonPictureRequest.addEventListener('click', () => {
     currentStep++;
 
     if (currentStep == 3) {
-        formMain[2].classList.remove("active"); 
+        formMain[2].classList.remove("active");
         formMain[3].classList.add("active");
     }
     console.log(currentStep)
     console.log('oi')
-    video.style.display ='block';
+    video.style.display = 'block';
     modal.style.display = 'none';
     buttonTakePicture.style.display = 'block';
     // img.src = canvas.toDataURL('image/png');
@@ -118,58 +118,59 @@ buttonPictureRequest.addEventListener('click',()=>{
 
 });
 
-buttonTakePicture.addEventListener('click' ,()=>{
+buttonTakePicture.addEventListener('click', () => {
     console.log(currentStep)
-    video.style.display='none';
+    video.style.display = 'none';
     modal.style.display = '';
     buttonTakePicture.style.display = 'none';
     var canvas = document.querySelector('canvas');
     canvas.width = 200;
     canvas.height = 200;
-    
+
     var context = canvas.getContext('2d');
     context.drawImage(video, 0, 0, 200, 200);
-    
+
 });
-    // console.log(currentStep)
-    // video.style.display='none';
-    // modal.style.display = '';
-    // buttonTakePicture.style.display = 'none';
-    // var canvas = document.querySelector('canvas');
-    // currentStep++;
-    
-    // canvas.width = 500;
-    // canvas.height = 400;
-    
-    // var context = canvas.getContext('2d');
-    // context.drawImage(video, 0, 0, 500, 400);
-   
-    // // for(let i =0; i<=photoGallery.length; i++){
-    // //     console.log('Tirei a foto', i)
-    // //     const img = document.createElement('img');
-    // //     img.src = canvas.toDataURL('image/png');
-    // //     photoGallery[i].appendChild(img);
-    // //     console.log(photoGallery)
-    // // }
+// console.log(currentStep)
+// video.style.display='none';
+// modal.style.display = '';
+// buttonTakePicture.style.display = 'none';
+// var canvas = document.querySelector('canvas');
+// currentStep++;
+
+// canvas.width = 500;
+// canvas.height = 400;
+
+// var context = canvas.getContext('2d');
+// context.drawImage(video, 0, 0, 500, 400);
+
+// // for(let i =0; i<=photoGallery.length; i++){
+// //     console.log('Tirei a foto', i)
+// //     const img = document.createElement('img');
+// //     img.src = canvas.toDataURL('image/png');
+// //     photoGallery[i].appendChild(img);
+// //     console.log(photoGallery)
+// // }
 
 
-buttonTakeAnotherPicture.addEventListener('click',()=>{
+buttonTakeAnotherPicture.addEventListener('click', () => {
     console.log('oi')
-    video.style.display ='block';
+    video.style.display = 'block';
     modal.style.display = 'none';
     buttonTakePicture.style.display = 'block';
-        img.src = canvas.toDataURL('image/png');
-        photoGallery.removeChild(img);
+    img.src = canvas.toDataURL('image/png');
+    photoGallery.removeChild(img);
 })
 
 buttonNext_2.addEventListener("click", (e) => {
-    currentStep= currentStep+2;
+    currentStep = currentStep + 2;
 
     if (currentStep == 4) {
         formMain[2].classList.remove("active");
         formMain[4].classList.add("active");
     }
     console.log(currentStep)
+
 })
 
 buttonNext_3.addEventListener("click", (e) => {
@@ -194,6 +195,7 @@ buttonNext_4.addEventListener("click", (e) => {
         formMain[2].classList.add("active");
         console.log(currentStep)
     }
+   
 })
 
 buttoEnd.addEventListener("click", (e) => {
@@ -237,7 +239,7 @@ buttonBack.addEventListener("click", (e) => {
         console.log(currentStep)
     }
     if (currentStep == 4) {
-        currentStep = currentStep-2;
+        currentStep = currentStep - 2;
         formMain[4].classList.remove("active");
         formMain[2].classList.add("active");
         formMain[3].classList.remove("active");
@@ -328,20 +330,11 @@ function serviceList() {
 
 
 //---------SELECIONA AS PEÇAS DO CARRO---------
-(function () {
+
+(function selectParts() {
     'use strict';
     const pecas = document.getElementsByTagName('path');
 
-    // doc.querySelector('#svg2').addEventListener('click', (e) => {
-    //     let id = e.target.id;
-    //     console.log(id);
-    //     const path = doc.querySelector('#' + id);
-    //     path.style.fill = 'rgb(3,3,3)';
-    //     document.getElementById("peca_dinamica").innerHTML = id;
-    //     document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
-
-
-    // })
     for (let i = 0; i < pecas.length; i++) {
         const elemento = pecas[i]
 
@@ -353,23 +346,31 @@ function serviceList() {
             if (elemento.classList.contains('active')) {
                 elemento.classList.add('active');
             }
+
             const el = event.target;
             const id = el.id;
+
+            console.log(id)
             document.getElementById("peca_dinamica").innerHTML = id;
+            
+             
+            buttonNext_4
             document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
-            console.log(id);
-        }
-        )
+
+
+
+            // console.log(id);
+        })
     }
 
-    document.querySelector('#svg2').addEventListener('dblclick', (e) => {
-        let id = e.target.id;
-        console.log(id);
-        document.querySelector('#' + id).style.fill = '#999999';
-        document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
-        document.getElementById("parts").innerHTML = "SEM PEÇA";
-        nenhumaPeca();
-    });
+    // document.querySelector('#svg2').addEventListener('click', (e) => {
+    //     let id = e.target.id;
+    //     console.log(id);
+    //     // document.querySelector('#' + id).style.fill = '#999999';
+    //     document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
+    //     document.getElementById("parts").innerHTML = "SEM PEÇA";
+    //     nenhumaPeca();
+    // });
 
 })(window, document);
 
