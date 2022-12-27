@@ -14,41 +14,44 @@
 
 <body>
 
-
 	<div class="main">
-		
+
+		<div class="header">
+			<div class="align"></div>
+			<img id="logo" src="assets/images/image-removebg-preview.png">
+			<div class="align"></div>
+		</div>
 
 		<form method="POST">
-			<img src="assets/images/image-removebg-preview.png" alt="">
 			<div class="box-flex-dados">
+
 				<div>
-					<div class="form-duo">
-					<label>E-mail</label>
-				</div>
-					<input type="email" id="email">
-				</div>
-				
+					<div>
+						<div class="form-duo">
+							<label>E-mail</label>
+						</div>
+						<input type="email" id="email">
+					</div>
+
 				</div>
 				<div class="box-flex-form">
 					<div class="form-duo">
 						<label>Senha:</label>
 						<div><input type="password" id="password">
-						<div id="icon"></div>
-
+							<div id="icon"></div>
+						</div>
 						<!-- <button type ="button" onclick="mostrarSenha()">Ok</button> -->
 					</div>
-					
-					</div>
+
 				</div>
-				<button type="button" class="button-end" onclick="login()">Entrar</button>
-				
-		</form>	
 			</div>
-			
+			<button type="button" class="button-end" onclick="login()">Entrar</button>
+
+		</form>
 	</div>
 
+	</div>
 
-	
 
 </body>
 <script src="js/script-index.js"></script>
@@ -56,14 +59,15 @@
 <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
 <script>
 	const firebaseConfig = {
-    apiKey: "AIzaSyD5Bs32isYM3ezqogKmKqj5fdwOympYd3A",
-    authDomain: "cristal-car---auth.firebaseapp.com",
-    projectId: "cristal-car---auth",
-    storageBucket: "cristal-car---auth.appspot.com",
-    messagingSenderId: "282113207248",
-    appId: "1:282113207248:web:508c94932876db072be7d5"
-  };
-  firebase.initializeApp(firebaseConfig);
+		apiKey: "AIzaSyD5Bs32isYM3ezqogKmKqj5fdwOympYd3A",
+		authDomain: "cristal-car---auth.firebaseapp.com",
+		projectId: "cristal-car---auth",
+		storageBucket: "cristal-car---auth.appspot.com",
+		messagingSenderId: "282113207248",
+		appId: "1:282113207248:web:508c94932876db072be7d5"
+	};
+	firebase.initializeApp(firebaseConfig);
 
 </script>
+
 </html>
