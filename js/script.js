@@ -425,38 +425,51 @@ function validaCheck() {
     const checkbox3 = document.getElementById("checkServices3");
     const checkbox4 = document.getElementById("checkServices4");
     const checkbox5 = document.getElementById("checkServices5");
+    const checkbox6 = document.getElementById("checkServices6");
 
     if (checkbox1.checked) {
         checkbox2.disabled = true;
         checkbox3.disabled = true;
         checkbox4.disabled = true;
         checkbox5.disabled = true;
+        checkbox6.disabled = true;
     } else {
         checkbox1.disabled = false;
         checkbox2.disabled = false;
         checkbox3.disabled = false;
         checkbox4.disabled = false;
         checkbox5.disabled = false;
+        checkbox6.disabled = false;
     }
     if (checkbox2.checked) {
         checkbox1.disabled = true;
         checkbox3.disabled = true;
         checkbox4.disabled = true;
         checkbox5.disabled = true;
+        checkbox6.disabled = true;
     }
     if (checkbox3.checked) {
         checkbox1.disabled = true;
         checkbox2.disabled = true;
         checkbox4.disabled = true;
         checkbox5.disabled = true;
+        checkbox6.disabled = true;
     }
     if (checkbox4.checked) {
         checkbox1.disabled = true;
         checkbox2.disabled = true;
         checkbox3.disabled = true;
         checkbox5.disabled = true;
+        checkbox6.disabled = true;
     }
     if (checkbox5.checked) {
+        checkbox1.disabled = true;
+        checkbox2.disabled = true;
+        checkbox4.disabled = true;
+        checkbox3.disabled = true;
+        checkbox6.disabled = true;
+    }
+    if (checkbox6.checked) {
         checkbox1.disabled = true;
         checkbox2.disabled = true;
         checkbox4.disabled = true;
