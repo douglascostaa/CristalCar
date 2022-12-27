@@ -474,6 +474,7 @@ function validaCheck() {
         checkbox2.disabled = true;
         checkbox4.disabled = true;
         checkbox3.disabled = true;
+        checkbox5.disabled = true;
     }
 }
 //---------PINTA AS PARTES A SEREM CONSERTADAS NO FINAL DO ORÇAMENTO---------
