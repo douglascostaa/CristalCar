@@ -87,6 +87,10 @@ buttonNext_1.addEventListener("click", (e) => {
     }
     console.log(currentStep)
     selectParts();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3964c62c5ca82cafb6aa7fe7614ea02f5ca607b5
 })
 
 // Abre a câmera para tirar fotos e salva as fotos na tela final
@@ -194,6 +198,7 @@ buttonNext_4.addEventListener("click", (e) => {
         formMain[2].classList.add("active");
         console.log(currentStep)
     }
+<<<<<<< HEAD
     document.getElementById("parts").innerHTML += "<li>" + parts + "</li>"
     const finalPecas = document.getElementsByClassName('cls-2');
 
@@ -201,6 +206,8 @@ buttonNext_4.addEventListener("click", (e) => {
         finalPecas[evento.id].classList.add('activate')
     }
     console.log(parts)
+=======
+>>>>>>> 3964c62c5ca82cafb6aa7fe7614ea02f5ca607b5
 
 })
 
@@ -215,6 +222,7 @@ buttoEnd.addEventListener("click", (e) => {
         formMain[5].classList.add("active");
     }
     console.log(currentStep)
+<<<<<<< HEAD
     
     document.getElementById("parts").innerHTML += "<li>" + parts + "</li>"
 
@@ -228,6 +236,10 @@ buttoEnd.addEventListener("click", (e) => {
 
         console.log(parts)
     
+=======
+    console.log(currentStep + " oie")
+    selectPartsGambiarra();
+>>>>>>> 3964c62c5ca82cafb6aa7fe7614ea02f5ca607b5
 
 })
 
@@ -332,7 +344,9 @@ function serviceList() {
     const recupera = recupera_label.value;
     var pintura_label = document.querySelector("#checkServices5");
     const pintura = pintura_label.value;
-    var vetServicos = [troca, trocaPinta, removeInstala, recupera, pintura];
+    var recuperaPinta_label = document.querySelector("#checkServices6");
+    const recuperaPinta = recuperaPinta_label.value;
+    var vetServicos = [troca, trocaPinta, removeInstala, recupera, pintura, recuperaPinta];
     var elementos = document.getElementsByClassName("checkServices");
     var precoDinamico = valor_init;
 
@@ -384,9 +398,43 @@ function selectParts() {
 
 
             console.log(id)
+<<<<<<< HEAD
     }
     )}
 }
+=======
+            document.getElementById("peca_dinamica").innerHTML = id;
+            selectPartsGambiarra(id);
+
+
+
+
+
+            // console.log(id);
+        })
+    }
+
+    // document.querySelector('#svg2').addEventListener('click', (e) => {
+    //     let id = e.target.id;
+    //     console.log(id);
+    //     // document.querySelector('#' + id).style.fill = '#999999';
+    //     document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
+    //     document.getElementById("parts").innerHTML = "SEM PEÇA";
+    //     nenhumaPeca();
+    // });
+
+};
+
+function selectPartsGambiarra(id) {
+
+    document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
+
+};
+
+
+
+
+>>>>>>> 3964c62c5ca82cafb6aa7fe7614ea02f5ca607b5
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
 function nenhumaPeca() {
