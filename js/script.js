@@ -471,7 +471,7 @@ function validaCheck() {
     const checkbox3 = document.getElementById("checkServices3");
     const checkbox4 = document.getElementById("checkServices4");
     const checkbox5 = document.getElementById("checkServices5");
-    const checkbox6 = document.getElementById("checkServices6")
+    const checkbox6 = document.getElementById("checkServices6");
 
     if (checkbox1.checked) {
         checkbox2.disabled = true;
