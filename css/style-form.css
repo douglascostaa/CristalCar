@@ -312,3 +312,9 @@ form input:focus {
 path{
     fill: #999999;
 }
+
+
+.activate
+{
+    fill: #d65f15;
+}

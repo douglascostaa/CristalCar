@@ -19,8 +19,6 @@
 // document.querySelector('.date').innerHTML = data;
 
 
-
-
 /*Declaração das constantes*/
 const multiStepForm = document.querySelector("[data-multi-step]")
 const formSteps = [...multiStepForm.querySelectorAll("[data-step]")]
@@ -38,21 +36,13 @@ const buttonTakeAnotherPicture = document.querySelector('.button-take-another-ph
 const video = document.querySelector('video')
 const photoGallery = document.getElementsByClassName('photo-gallery')
 const modal = document.getElementById('modal')
-
+const finalSVG = document.getElementById('svg3')
 let currentStep = formSteps.findIndex(step => {
     return step.classList.contains("active")
 })
 let formMain = document.getElementsByClassName('form-main');
 
 
-//---------Desativa o botão de voltar na tela inicial--------- 
-function removeStyle() {
-    const sheet = new CSSStyleSheet();
-    sheet.insertRule(`#button-back{
-        display: none;
-    }`);
-    document.adoptedStyleSheets = [sheet];
-}
 // Ativa o botão nas outras telas
 function addStyle() {
     const sheet = new CSSStyleSheet();
@@ -65,6 +55,13 @@ function addStyle() {
 if (currentStep < 0) {
     currentStep = 0
     formMain[0].classList.add("active");
+    
+    //---------Desativa o botão de voltar na página inicial ---------
+    const sheet = new CSSStyleSheet();
+    sheet.insertRule(`#button-back{
+        display: none;
+    }`);
+    document.adoptedStyleSheets = [sheet];
 }
 console.log(currentStep)
 
@@ -75,6 +72,7 @@ buttonOrcamento.addEventListener("click", (e) => {
         addStyle();
         formMain[0].classList.remove("active");
         formMain[1].classList.add("active");
+        divButtonBack.addStyle('display:none')
     }
     console.log(currentStep)
 })
@@ -89,7 +87,10 @@ buttonNext_1.addEventListener("click", (e) => {
     }
     console.log(currentStep)
     selectParts();
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3964c62c5ca82cafb6aa7fe7614ea02f5ca607b5
 })
 
 // Abre a câmera para tirar fotos e salva as fotos na tela final
@@ -197,6 +198,16 @@ buttonNext_4.addEventListener("click", (e) => {
         formMain[2].classList.add("active");
         console.log(currentStep)
     }
+<<<<<<< HEAD
+    document.getElementById("parts").innerHTML += "<li>" + parts + "</li>"
+    const finalPecas = document.getElementsByClassName('cls-2');
+
+    if (finalPecas != parts) {
+        finalPecas[evento.id].classList.add('activate')
+    }
+    console.log(parts)
+=======
+>>>>>>> 3964c62c5ca82cafb6aa7fe7614ea02f5ca607b5
 
 })
 
@@ -211,10 +222,30 @@ buttoEnd.addEventListener("click", (e) => {
         formMain[5].classList.add("active");
     }
     console.log(currentStep)
+<<<<<<< HEAD
+    
+    document.getElementById("parts").innerHTML += "<li>" + parts + "</li>"
+
+        const finalPecas = document.getElementsByClassName('cls-2');
+
+        if (finalPecas != parts) {
+            finalPecas[evento.id].classList.add('activate')
+        }
+
+        
+
+        console.log(parts)
+    
+=======
     console.log(currentStep + " oie")
     selectPartsGambiarra();
+>>>>>>> 3964c62c5ca82cafb6aa7fe7614ea02f5ca607b5
 
 })
+
+// Variável Global que permite armazenar o valor do id clicado
+var parts;
+var evento;
 
 //---------Controller das "páginas" de navegação (VOLTAR)---------
 buttonBack.addEventListener("click", (e) => {
@@ -346,11 +377,32 @@ function selectParts() {
             if (elemento.classList.contains('active')) {
                 elemento.classList.add('active');
             }
-
             const el = event.target;
             const id = el.id;
+            
+            evento = el;
+            parts = id;
+
+            (document.getElementById("peca_dinamica").innerHTML = id);
+
+        //     doc.querySelector('#svg3').addEventListener('mouseover',(e)=>{
+        //         let id = e.target.id;
+        //         doc.querySelector('#'+id).style.fill = 'rgb(3,3,3)';
+        //    });
+            
+                // for (let i = 0; i < finalPecas.length; i++) {
+                //     finalPecas[i].id;
+                //     finalPecas[i].classList.add('active');
+                // }
+            
+
 
             console.log(id)
+<<<<<<< HEAD
+    }
+    )}
+}
+=======
             document.getElementById("peca_dinamica").innerHTML = id;
             selectPartsGambiarra(id);
 
@@ -382,6 +434,7 @@ function selectPartsGambiarra(id) {
 
 
 
+>>>>>>> 3964c62c5ca82cafb6aa7fe7614ea02f5ca607b5
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
 function nenhumaPeca() {
@@ -469,7 +522,38 @@ function validaCheck() {
         checkbox3.disabled = true;
     }
 }
+//---------PINTA AS PARTES A SEREM CONSERTADAS NO FINAL DO ORÇAMENTO---------
 
+// (function () {
+//     'use strict';
+//     const pecas = document.getElementsByClassName('cls-2');
+
+//     // for (let i = 0; i < pecas.length; i++) {
+//         const elemento = pecas[i]
+
+//         elemento.addEventListener('click', (event) => {
+//             for (let i = 0; i < pecas.length; i++) {
+//                 pecas[i].classList.remove('active');
+//             }
+//             elemento.classList.add('active')
+//             if (elemento.classList.contains('active')) {
+//                 elemento.classList.add('active');
+//             }
+//             const el = event.target;
+//             const id = el.id;
+
+//             parts = id;
+
+//             (document.getElementById("peca_dinamica").innerHTML = id);
+
+//             console.log(id)
+
+//         })
+         
+        
+//     // }
+
+// })(window,document)
 
 
 // clientes = [[Nome: Victor, Carro: IXL1929, Peças: [Capo,Porta], Fotos: [img1,img2,im3]], [Nome: Douglas, Carro: IXL1929, Peças: [Porta], Fotos: [img1,img3]]];
