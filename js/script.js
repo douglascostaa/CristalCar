@@ -88,7 +88,7 @@ buttonNext_1.addEventListener("click", (e) => {
         modal.style.display = 'none';
     }
     console.log(currentStep)
-     selectParts();
+    selectParts();
 
 })
 
@@ -197,7 +197,7 @@ buttonNext_4.addEventListener("click", (e) => {
         formMain[2].classList.add("active");
         console.log(currentStep)
     }
-    
+
 })
 
 buttoEnd.addEventListener("click", (e) => {
@@ -211,9 +211,9 @@ buttoEnd.addEventListener("click", (e) => {
         formMain[5].classList.add("active");
     }
     console.log(currentStep)
-    const teste = selectParts() ;
-    console.log(teste);
-    document.getElementById("parts").innerHTML += "<li>" + teste + "</li>";
+    console.log(currentStep + " oie")
+    selectPartsGambiarra();
+
 })
 
 //---------Controller das "páginas" de navegação (VOLTAR)---------
@@ -300,13 +300,6 @@ btn.addEventListener("click", function (e) {
 
 })
 
-
-
-
-
-
-
-
 //---------MANIPULA TELA DE SERVIÇOS: ENVIA/PEGA DADOS---------
 function serviceList() {
     const valor_init = document.querySelector("#price");
@@ -320,7 +313,9 @@ function serviceList() {
     const recupera = recupera_label.value;
     var pintura_label = document.querySelector("#checkServices5");
     const pintura = pintura_label.value;
-    var vetServicos = [troca, trocaPinta, removeInstala, recupera, pintura];
+    var recuperaPinta_label = document.querySelector("#checkServices6");
+    const recuperaPinta = recuperaPinta_label.value;
+    var vetServicos = [troca, trocaPinta, removeInstala, recupera, pintura, recuperaPinta];
     var elementos = document.getElementsByClassName("checkServices");
     var precoDinamico = valor_init;
 
@@ -357,11 +352,14 @@ function selectParts() {
 
             console.log(id)
             document.getElementById("peca_dinamica").innerHTML = id;
-            
-            
+            selectPartsGambiarra(id);
+
+
+
+
+
             // console.log(id);
         })
-
     }
 
     // document.querySelector('#svg2').addEventListener('click', (e) => {
@@ -374,6 +372,16 @@ function selectParts() {
     // });
 
 };
+
+function selectPartsGambiarra(id) {
+
+    document.getElementById("parts").innerHTML += "<li>" + id + "</li>";
+
+};
+
+
+
+
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
 function nenhumaPeca() {
