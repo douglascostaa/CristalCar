@@ -20,8 +20,9 @@ body {
 }
 
 svg {
-	width: 500px;
+	width: 800px;
 	height: 300px;
+	/* transform: rotate(90deg); */
 }
 
 .header {
@@ -263,7 +264,41 @@ form input:focus {
 	border: none;
 	border-bottom: rgb(255, 136, 0) 4px solid;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 600;
+	
+}
+
+.organiza-buttons {
+	display: flex;
+	flex-direction: column;
+}
+
+.bt-icons {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: -30px;
+}
+
+#button-icon {
+	/* margin-top: 50px; */
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	border: #fff 1px solid;
+	border-radius: 5px;
+	padding: 15px;
+	cursor: pointer;	
+	width: 60px;
+	height: 50px;
+}
+
+.input-manual {
+	display: none;
+}
+
+.input-manual.active {
+	display: block;
 }
 
 .box-check {
