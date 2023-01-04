@@ -32,7 +32,10 @@ const buttonOrcamento = document.querySelector(".button-orcamento")
 const divButtonBack = document.querySelector(".div-back-button")
 const buttonPictureRequest = document.querySelector('.button-picture-request')
 const buttonTakePicture = document.querySelector('.button-picture')
+const buttonEditRequest = document.querySelector('.button-edit-request')
+const buttonEdit = document.querySelector('.button-edit')
 const buttonTakeAnotherPicture = document.querySelector('.button-take-another-photo')
+const divInputManual =  document.querySelector('.input-manual')
 const video = document.querySelector('video')
 const photoGallery = document.getElementsByClassName('photo-gallery')
 const modal = document.getElementById('modal')
@@ -45,23 +48,23 @@ let formMain = document.getElementsByClassName('form-main');
 
 // Ativa o botão nas outras telas
 function addStyle() {
-    const sheet = new CSSStyleSheet();
-    sheet.insertRule(`#button-back{
-        display: block;
-    }`);
-    document.adoptedStyleSheets = [sheet];
+	const sheet = new CSSStyleSheet();
+	sheet.insertRule(`#button-back{
+			display: block;
+	}`);
+	document.adoptedStyleSheets = [sheet];
 }
 //---------Controller das "páginas" de navegação---------
 if (currentStep < 0) {
-    currentStep = 0
-    formMain[0].classList.add("active");
-    
-    //---------Desativa o botão de voltar na página inicial ---------
-    const sheet = new CSSStyleSheet();
-    sheet.insertRule(`#button-back{
-        display: none;
-    }`);
-    document.adoptedStyleSheets = [sheet];
+	currentStep = 0
+	formMain[0].classList.add("active");
+	
+	//---------Desativa o botão de voltar na página inicial ---------
+	const sheet = new CSSStyleSheet();
+	sheet.insertRule(`#button-back{
+			display: none;
+	}`);
+	document.adoptedStyleSheets = [sheet];
 }
 console.log(currentStep)
 
@@ -102,7 +105,6 @@ navigator.mediaDevices.getUserMedia({ video: true })
 
 buttonPictureRequest.addEventListener('click', () => {
     currentStep++;
-
     if (currentStep == 3) {
         formMain[2].classList.remove("active");
         formMain[3].classList.add("active");
@@ -114,22 +116,32 @@ buttonPictureRequest.addEventListener('click', () => {
     buttonTakePicture.style.display = 'block';
     // img.src = canvas.toDataURL('image/png');
     // photoGallery.removeChild(img);
-
 });
 
 buttonTakePicture.addEventListener('click', () => {
-    console.log(currentStep)
-    video.style.display = 'none';
-    modal.style.display = '';
-    buttonTakePicture.style.display = 'none';
-    var canvas = document.querySelector('canvas');
-    canvas.width = 200;
-    canvas.height = 200;
+	console.log(currentStep)
+	video.style.display = 'none';
+	modal.style.display = '';
+	buttonTakePicture.style.display = 'none';
+	var canvas = document.querySelector('canvas');
+	canvas.width = 200;
+	canvas.height = 200;
 
-    var context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0, 200, 200);
+	var context = canvas.getContext('2d');
+	context.drawImage(video, 0, 0, 200, 200);
 
 });
+
+
+//------- INPUT MANUAL ---------
+function inputManual () {
+  const svg_car = document.getElementById('svg2');
+  svg_car.className = 'active';
+  divInputManual.className = 'active';
+}
+
+
+
 // console.log(currentStep)
 // video.style.display='none';
 // modal.style.display = '';
@@ -393,14 +405,16 @@ function selectParts() {
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
 function nenhumaPeca() {
     const peca_carro = document.getElementById("peca_dinamica");
+	const peca_carro_manual = document.getElementById("peca_input_manual");
 
-    if (peca_carro.innerHTML == "" || peca_carro.innerHTML == "svg2") {
+    if ((peca_carro.innerHTML == "" || peca_carro.innerHTML == "svg2") &&  (peca_carro_manual.innerHTML == "")) {
         document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
         document.getElementById("checkServices1").disabled = true;
         document.getElementById("checkServices2").disabled = true;
         document.getElementById("checkServices3").disabled = true;
         document.getElementById("checkServices4").disabled = true;
         document.getElementById("checkServices5").disabled = true;
+		document.getElementById("checkServices6").disabled = true;
         document.getElementById("price").disabled = true;
 
         return;
@@ -411,6 +425,7 @@ function nenhumaPeca() {
         document.getElementById("checkServices3").disabled = false;
         document.getElementById("checkServices4").disabled = false;
         document.getElementById("checkServices5").disabled = false;
+		document.getElementById("checkServices6").disabled = false;
         document.getElementById("price").disabled = false;
 
         return;
