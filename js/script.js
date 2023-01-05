@@ -40,6 +40,11 @@ const video = document.querySelector('video')
 const photoGallery = document.getElementsByClassName('photo-gallery')
 const modal = document.getElementById('modal')
 const finalSVG = document.getElementById('svg3')
+
+
+
+
+
 let currentStep = formSteps.findIndex(step => {
     return step.classList.contains("active")
 })
@@ -235,6 +240,7 @@ buttoEnd.addEventListener("click", (e) => {
         if (finalPecas != parts) {
             finalPecas[evento.id].classList.add('activate')
         }
+    finalSVG.style.pointerEvents = 'none';
 
         
 
@@ -242,7 +248,6 @@ buttoEnd.addEventListener("click", (e) => {
     
 
 })
-
 // Variável Global que permite armazenar o valor do id clicado
 var parts;
 var evento;

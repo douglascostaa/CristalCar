@@ -42,10 +42,14 @@
 						</div>
 						<!-- <button type ="button" onclick="mostrarSenha()">Ok</button> -->
 					</div>
-
+					<div class="recovery-button-container">
+						<button type="button" class="button-recovery" onclick="recoverPassword()">
+							Recuperar Senha   </button>
+					</div>
 				</div>
+
 			</div>
-			<button type="button" class="button-end" onclick="login()">Entrar</button>
+			<button type="button" class="button-logIn" onclick="login()"><i class="fa-solid fa-angle-right"></i> Entrar</button>
 
 		</form>
 	</div>
@@ -53,20 +57,20 @@
 	</div>
 
 </body>
-<script src="js/script-index.js"></script>
+
 <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
-<script>
-	const firebaseConfig = {
-		apiKey: "AIzaSyD5Bs32isYM3ezqogKmKqj5fdwOympYd3A",
-		authDomain: "cristal-car---auth.firebaseapp.com",
-		projectId: "cristal-car---auth",
-		storageBucket: "cristal-car---auth.appspot.com",
-		messagingSenderId: "282113207248",
-		appId: "1:282113207248:web:508c94932876db072be7d5"
-	};
-	firebase.initializeApp(firebaseConfig);
+<script src="js/firebase-init.js"></script>
+<script src="js/script-index.js"></script>
 
+<script>
+	//Redireciona o usuário que já foi logado automaticamente pra página da aplicação
+	firebase.auth().onAuthStateChanged(function (user) {
+		if (user) {
+			window.location.href = "form.html"
+		}
+	})
 </script>
+
 
 </html>

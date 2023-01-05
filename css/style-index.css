@@ -95,7 +95,7 @@ form input:focus {
     cursor: pointer;
 } */
 
-.button-end {
+.button-logIn {
 	text-align: center;
 	text-decoration: none;
 	color: #fff;
@@ -114,4 +114,25 @@ form input:focus {
 
 path {
 	fill: #999999;
+}
+
+.button-recovery{
+	color: #fff;
+	background-color: #0000;
+	font-family: "Nasa";
+	border-color: #000;
+	border-style: none;
+	cursor: pointer;
+	
+}
+
+.button-recovery:hover{
+	background-color: rgb(255, 136, 0);
+
+}
+
+.recovery-button-container{
+	display: flex;
+	align-items: flex-end;
+	justify-content: end;
 }

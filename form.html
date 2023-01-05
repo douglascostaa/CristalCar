@@ -23,17 +23,23 @@
 			<div class="div-back-button">
 				<a data-previous id="button-back"><i class="fa-solid fa-arrow-left"></i></a>
 			</div>
+			
 			<img id="logo" src="assets/images/image-removebg-preview.png">
 			<div class="align"></div>
+			<button type="button" onclick="logout()">Logout</button>
 		</div>
-
+		
 		<form data-multi-step>
 
 			<!-- Botão Orçamento  - (ETAPA 0) -->
 
 			<div class="form-main">
 				<a class="button-orcamento"><i class="fa-solid fa-angle-left"></i> ORÇAR VEÍCULO <i
+						class="fa-solid fa-angle-right"></i></a><br>
+				<a class="button-orcamento" href="lista_orcamentos.html"><i class="fa-solid fa-angle-left"></i> ORÇAMENTOS <i
 						class="fa-solid fa-angle-right"></i></a>
+
+				
 			</div>
 
 
@@ -229,13 +235,18 @@
 							<g id="parachoque_frontal" data-name="parachoque frontal">
 								<path class="cls-1" id="PARACHOQUE INFERIOR DIANTEIRO"
 									d="M60.18 1118.5L146.14 1118.5L146.14 537.5L73.32 537.5L60.18 1118.5z" />
-								<path class="cls-1" d="M2.02 1083.69L60.18 1118.5L73.32 537.5L10.03 566.87L2.02 1083.69z" />
-								<path class="cls-1" id="PISCA DIANTEIRO ESQUERDO" d="M146.14 1078.13h95.28v40.37H146.14Z" />
-								<path class="cls-1" id="FAROL DIANTEIRO ESQUERDO" d="M146.14 971.93h95.28v106.2H146.14Z" />
+								<path class="cls-1"
+									d="M2.02 1083.69L60.18 1118.5L73.32 537.5L10.03 566.87L2.02 1083.69z" />
+								<path class="cls-1" id="PISCA DIANTEIRO ESQUERDO"
+									d="M146.14 1078.13h95.28v40.37H146.14Z" />
+								<path class="cls-1" id="FAROL DIANTEIRO ESQUERDO"
+									d="M146.14 971.93h95.28v106.2H146.14Z" />
 								<path class="cls-1" id="PARACHOQUE DIANTEIRO"
 									d="M146.14 700.88L247.16 700.88L208.47 740.96L205.61 934.39L241.43 971.93L146.14 971.93L146.14 700.88z" />
-								<path class="cls-1" id="FAROL DIANTEIRO DIREITO" d="M146.14 594.69h101.01v106.2H146.14Z" />
-								<path class="cls-1" id="PISCA DIANTEIRO DIREITO" d="M146.14 537.5h101.01v57.19H146.14Z" />
+								<path class="cls-1" id="FAROL DIANTEIRO DIREITO"
+									d="M146.14 594.69h101.01v106.2H146.14Z" />
+								<path class="cls-1" id="PISCA DIANTEIRO DIREITO"
+									d="M146.14 537.5h101.01v57.19H146.14Z" />
 							</g>
 						</g>
 						<g id="lado_1-2" data-name="lado 1">
@@ -337,14 +348,16 @@
 				<br>
 				<div class="organiza-buttons">
 					<div class="bt-icons">
-						<a id="button-icon" class='button-picture-request' class="button-picture"><i class="fa-solid fa-camera"></i>
+						<a id="button-icon" class='button-picture-request' class="button-picture"><i
+								class="fa-solid fa-camera"></i>
 						</a>
-						<a id="button-icon" onclick="inputManual()" class='button-edit-request' class="button-edit"><i
-								class="fa-solid fa-pen"></i>
+						<a id="button-icon" onclick="inputManual()" class='button-edit-request' class="button-edit">
+							<i class="fa-solid fa-pen"></i>
 						</a>
 					</div>
 					<br>
-					<a id="button-next" onclick="nenhumaPeca()" class="button-next-2"><i class="fa-solid fa-angle-right"></i>
+					<a id="button-next" onclick="nenhumaPeca()" class="button-next-2"><i
+							class="fa-solid fa-angle-right"></i>
 						CONTINUAR ORÇAMENTO</a>
 				</div>
 
@@ -365,7 +378,8 @@
 						<div class="buttons-photo">
 							<a id="button-next" class="button-next-3"><i class="fa-solid fa-camera"></i> UTILIZAR FOTO
 							</a></button>
-							<a id="button-next" class="button-take-another-photo"><i class="fa-solid fa-camera"></i> TIRAR
+							<a id="button-next" class="button-take-another-photo"><i class="fa-solid fa-camera"></i>
+								TIRAR
 								OUTRA FOTO
 							</a></button>
 						</div>
@@ -410,8 +424,8 @@
 									id="checkServices5"><label>Pintura</label>
 							</div>
 							<div class="form-duo">
-								<input type="checkbox" onclick="validaCheck()" class="checkServices" value="Recuperar e Pintar"
-									id="checkServices6"><label> Recuperar e Pintar</label>
+								<input type="checkbox" onclick="validaCheck()" class="checkServices"
+									value="Recuperar e Pintar" id="checkServices6"><label> Recuperar e Pintar</label>
 							</div>
 						</div>
 
@@ -423,7 +437,8 @@
 				<div class="align"></div>
 
 				<div class="box-buttons">
-					<a id="button-next" class="button-next-4" onclick="serviceList()"><i class="fa-solid fa-angle-right"></i>
+					<a id="button-next" class="button-next-4" onclick="serviceList()"><i
+							class="fa-solid fa-angle-right"></i>
 						CONTINUAR ORÇAMENTO </a>
 					<a id="button-end" onclick="serviceList()" class="button-end"><i class="fa-solid fa-check"></i>
 						FINALIZAR
@@ -648,13 +663,18 @@
 								<g id="parachoque_frontal" data-name="parachoque frontal">
 									<path class="cls-2" id="PARACHOQUE INFERIOR DIANTEIRO"
 										d="M60.18 1118.5L146.14 1118.5L146.14 537.5L73.32 537.5L60.18 1118.5z" />
-									<path class="cls-2" d="M2.02 1083.69L60.18 1118.5L73.32 537.5L10.03 566.87L2.02 1083.69z" />
-									<path class="cls-2" id="PISCA DIANTEIRO ESQUERDO" d="M146.14 1078.13h95.28v40.37H146.14Z" />
-									<path class="cls-2" id="FAROL DIANTEIRO ESQUERDO" d="M146.14 971.93h95.28v106.2H146.14Z" />
+									<path class="cls-2"
+										d="M2.02 1083.69L60.18 1118.5L73.32 537.5L10.03 566.87L2.02 1083.69z" />
+									<path class="cls-2" id="PISCA DIANTEIRO ESQUERDO"
+										d="M146.14 1078.13h95.28v40.37H146.14Z" />
+									<path class="cls-2" id="FAROL DIANTEIRO ESQUERDO"
+										d="M146.14 971.93h95.28v106.2H146.14Z" />
 									<path class="cls-2" id="PARACHOQUE DIANTEIRO"
 										d="M146.14 700.88L247.16 700.88L208.47 740.96L205.61 934.39L241.43 971.93L146.14 971.93L146.14 700.88z" />
-									<path class="cls-2" id="FAROL DIANTEIRO DIREITO" d="M146.14 594.69h101.01v106.2H146.14Z" />
-									<path class="cls-2" id="PISCA DIANTEIRO DIREITO" d="M146.14 537.5h101.01v57.19H146.14Z" />
+									<path class="cls-2" id="FAROL DIANTEIRO DIREITO"
+										d="M146.14 594.69h101.01v106.2H146.14Z" />
+									<path class="cls-2" id="PISCA DIANTEIRO DIREITO"
+										d="M146.14 537.5h101.01v57.19H146.14Z" />
 								</g>
 							</g>
 							<g id="lado_1-2" data-name="lado 1">
@@ -769,12 +789,17 @@
 
 	<footer></footer>
 
-
 	<script src="js/script.js"></script>
 
 
 
 
 </body>
+
+<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-auth-compat.js"></script>
+<script src="js/auth-guard.js"></script>
+<script src="js/firebase-init.js"></script>
+<script src="js/script-index.js"></script>
 
 </html>

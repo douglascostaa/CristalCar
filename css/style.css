@@ -38,7 +38,8 @@ body {
 	align-items: center;
 	padding: 20px;
 	font-size: 20px;
-	/* width: 200px; */
+	width: 270px;
+	justify-content: center;
 	text-decoration: none;
 	color: #FFF;
 	background-image: linear-gradient( #102D5E, #0D1D36, rgb(0, 20, 49));
