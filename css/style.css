@@ -75,6 +75,13 @@ canvas {
 	height: 100%;
 	display: block;
 }
+video{
+	height: 60%;
+	width: 50%;
+	align-items: center;
+	justify-content: center;
+	
+}
 
 #photo-gallery{
 	width: 50%;
