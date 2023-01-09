@@ -32,10 +32,15 @@ const buttonOrcamento = document.querySelector(".button-orcamento")
 const divButtonBack = document.querySelector(".div-back-button")
 const buttonPictureRequest = document.querySelector('.button-picture-request')
 const buttonTakePicture = document.querySelector('.button-picture')
-const buttonEditRequest = document.querySelector('.button-edit-request')
-const buttonEdit = document.querySelector('.button-edit')
 const buttonTakeAnotherPicture = document.querySelector('.button-take-another-photo')
 const divInputManual =  document.querySelector('.input-manual')
+
+const svg_car = document.querySelector('.svg-car');
+const h4SelecionarPeca = document.querySelector('.titulo-selecionar');
+const label_input =  document.querySelector('.label-input-manual');
+const buttonSvg = document.querySelector('.button-svg');
+const buttonEdit = document.querySelector('.button-edit');
+
 const video = document.querySelector('video')
 const photoGallery = document.getElementsByClassName('photo-gallery')
 const modal = document.getElementById('modal')
@@ -90,6 +95,7 @@ buttonNext_1.addEventListener("click", (e) => {
     }
     console.log(currentStep)
     selectParts();
+		
 })
 
 // Abre a câmera para tirar fotos e salva as fotos na tela final
@@ -135,9 +141,25 @@ buttonTakePicture.addEventListener('click', () => {
 
 //------- INPUT MANUAL ---------
 function inputManual () {
-  const svg_car = document.getElementById('svg2');
-  svg_car.className = 'active';
-  divInputManual.className = 'active';
+	label_input.classList.add('active');
+	h4SelecionarPeca.innerHTML = ''
+  svg_car.classList.add('active');
+  divInputManual.classList.add('active');
+	buttonSvg.classList.add('active');
+	buttonEdit.classList.add('active');
+	
+}
+
+
+//--------- VOLTA SVG PRA TELA ---------
+function voltarSvg() {
+	label_input.classList.remove('active');
+	h4SelecionarPeca.innerHTML = 'Selecione uma peça para orçar:'
+  svg_car.classList.remove('active');
+  divInputManual.classList.remove('active');
+	buttonSvg.classList.remove('active');
+	buttonEdit.classList.remove('active');
+
 }
 
 
@@ -272,6 +294,8 @@ buttonBack.addEventListener("click", (e) => {
         //TO DO: REMOVER OS ITENS: PEÇA SELECIONADA
         //WARNING: TEM QUE CUIDAR PARA CONSEGUIR ADICIONAR MAIS QUE UMA 
         nenhumaPeca();
+				verificaInputManual();
+				// verificaInputManual();
         console.log(currentStep)
     }
     if (currentStep == 4) {
@@ -404,32 +428,74 @@ function selectParts() {
 
 //---------TRATAMENTO DE ERRO PEÇA NÃO SELECIONADA ---------
 function nenhumaPeca() {
-    const peca_carro = document.getElementById("peca_dinamica");
-	const peca_carro_manual = document.getElementById("peca_input_manual");
+  	const peca_carro = document.getElementById("peca_dinamica");
+		const peca_carro_manual = document.getElementById("peca_input_manual");
 
-    if ((peca_carro.innerHTML == "" || peca_carro.innerHTML == "svg2") &&  (peca_carro_manual.innerHTML == "")) {
-        document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
-        document.getElementById("checkServices1").disabled = true;
-        document.getElementById("checkServices2").disabled = true;
-        document.getElementById("checkServices3").disabled = true;
-        document.getElementById("checkServices4").disabled = true;
-        document.getElementById("checkServices5").disabled = true;
-		document.getElementById("checkServices6").disabled = true;
-        document.getElementById("price").disabled = true;
+    if ((peca_carro.innerHTML == "" || peca_carro.innerHTML == "svg2") && peca_carro_manual.innerHTML == ""){
+			console.log('entrei no if da nenhumaPeca');
+			document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
+			document.getElementById("checkServices1").disabled = true;
+			document.getElementById("checkServices2").disabled = true;
+			document.getElementById("checkServices3").disabled = true;
+			document.getElementById("checkServices4").disabled = true;
+			document.getElementById("checkServices5").disabled = true;
+			document.getElementById("checkServices6").disabled = true;
+			document.getElementById("price").disabled = true;
 
-        return;
+			return;
 
     } else {
-        document.getElementById("checkServices1").disabled = false;
-        document.getElementById("checkServices2").disabled = false;
-        document.getElementById("checkServices3").disabled = false;
-        document.getElementById("checkServices4").disabled = false;
-        document.getElementById("checkServices5").disabled = false;
-		document.getElementById("checkServices6").disabled = false;
-        document.getElementById("price").disabled = false;
+			console.log('entrei no else da nenhumaPeca');
+			verificaInputManual()
+			document.getElementById("checkServices1").disabled = false;
+			document.getElementById("checkServices2").disabled = false;
+			document.getElementById("checkServices3").disabled = false;
+			document.getElementById("checkServices4").disabled = false;
+			document.getElementById("checkServices5").disabled = false;
+			document.getElementById("checkServices6").disabled = false;
+			document.getElementById("price").disabled = false;
 
-        return;
-    }
+			return;
+	}
+		
+	
+}
+
+function verificaInputManual() {
+	const peca_carro_manual = document.getElementById("peca_input_manual");
+	console.log('verificaInputManual');
+
+	if(!(peca_carro_manual.innerHTML == "")) {
+		console.log('to no if bugado');
+		const pecaManual = peca_carro_manual.value;
+		document.getElementById("peca_dinamica").innerHTML = pecaManual;
+
+
+		// document.getElementById("peca_dinamica").innerHTML = "Nenhuma peça selecionada.";
+		// document.getElementById("checkServices1").disabled = true;
+		// document.getElementById("checkServices2").disabled = true;
+		// document.getElementById("checkServices3").disabled = true;
+		// document.getElementById("checkServices4").disabled = true;
+		// document.getElementById("checkServices5").disabled = true;
+		// document.getElementById("checkServices6").disabled = true;
+		// document.getElementById("price").disabled = true;
+
+		// return;
+	
+	}	
+	// else {
+	// 	const pecaManual = peca_carro_manual.value;
+	// 	document.getElementById("peca_dinamica").innerHTML = pecaManual;
+	// 	document.getElementById("checkServices1").disabled = false;
+	// 	document.getElementById("checkServices2").disabled = false;
+	// 	document.getElementById("checkServices3").disabled = false;
+	// 	document.getElementById("checkServices4").disabled = false;
+	// 	document.getElementById("checkServices5").disabled = false;
+	// 	document.getElementById("checkServices6").disabled = false;
+	// 	document.getElementById("price").disabled = false;
+
+	// 	return;
+	// }
 }
 
 

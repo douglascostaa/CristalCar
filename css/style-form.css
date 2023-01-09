@@ -25,6 +25,26 @@ svg {
 	/* transform: rotate(90deg); */
 }
 
+.svg-car {
+	display: block;
+}
+
+/* .svg-car.active .cls-1{
+	stroke: #0D1D36;
+} */
+
+.svg-car.active {
+	display: none;
+}
+
+.label-input-manual {
+	display: none;
+}
+
+.label-input-manual.active {
+	display: block;
+}
+
 .header {
 	margin-top: 10px;
 	color: #fff;
@@ -289,8 +309,8 @@ form input:focus {
 	border-radius: 5px;
 	padding: 15px;
 	cursor: pointer;	
-	width: 60px;
-	height: 50px;
+	/* width: 60px;
+	height: 50px; */
 }
 
 .input-manual {
@@ -299,6 +319,22 @@ form input:focus {
 
 .input-manual.active {
 	display: block;
+}
+
+.button-svg {
+	display: none;
+}
+
+.button-svg.active {
+	display: block;
+}
+
+.button-edit {
+	display: block;
+}
+
+.button-edit.active {
+	display: none;
 }
 
 .box-check {
